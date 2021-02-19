@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Diplom.View
 {
     /// <summary>
-    /// Логика взаимодействия для PageManagers.xaml
+    /// Логика взаимодействия для PageAddStudent.xaml
     /// </summary>
-    public partial class PageManagers : Page
+    public partial class PageAddStudent : Page
     {
-        public PageManagers()
+        public PageAddStudent()
         {
             InitializeComponent();
-        }
-
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Transfer.GoTo(((TextBlock)sender).Text);
         }
     }
 }

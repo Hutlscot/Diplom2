@@ -1,0 +1,58 @@
+﻿<Page x:Class="Diplom.View.PageAddStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Diplom.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="Добавление студента" Height="450" Width="800" Background="White" FontSize="15">
+    <Grid>
+        <GroupBox Margin="30" HorizontalAlignment="Center" Header="Данные студента" Width="300"
+                  materialDesign:ColorZoneAssist.Mode="Custom"
+                  materialDesign:ColorZoneAssist.Background="Black"
+                  materialDesign:ColorZoneAssist.Foreground="White">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBox
+                    MaxLength="25"
+                    materialDesign:HintAssist.Hint="Фамилия"
+                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                <TextBox
+                    MaxLength="25"
+                    materialDesign:HintAssist.Hint="Имя"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:TransitionAssist.DisableTransitions="True" />
+                <TextBox
+                    MaxLength="25"
+                    materialDesign:HintAssist.Hint="Отчество"
+                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                <TextBox
+                    Height="50"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="ПОО"
+                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                <TextBox
+                    MaxLength="10"
+                    TextWrapping="Wrap"
+                    materialDesign:HintAssist.Hint="№ Группы"
+                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                <TextBox
+                    MaxLength="7"
+                    Name="txt_division_code"
+                    materialDesign:HintAssist.Hint="Курс"
+                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                <Button Tag="98" Margin="25"
+                        Name="btm_next"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="150"
+                        ToolTip="Для сохранения необходимо заполнить все поля">
+                    <TextBlock Foreground="Black" Margin="0,0,0,3">
+                        Сохранить
+                    </TextBlock>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

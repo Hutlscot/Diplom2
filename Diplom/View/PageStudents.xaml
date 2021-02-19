@@ -4,11 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diplom.View"
+      xmlns:vm="clr-namespace:Diplom.VM"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Студенты">
-
+      Title="Студенты" Background="White">
+    <Page.DataContext>
+        <vm:StudentMV></vm:StudentMV>
+    </Page.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ПОО" Binding="{Binding MiddleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="№ Группы" Binding="{Binding MiddleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Курс" Binding="{Binding MiddleName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1">
+            <Button HorizontalAlignment="Left" Content="Добавить" Command="{Binding AddCommand}" Margin="20"></Button>
+            <Button HorizontalAlignment="Center" Content="Рейтинг" Margin="10"></Button>
+            <Button HorizontalAlignment="Right" Content="Удалить" Margin="20"></Button>
+        </Grid>
     </Grid>
 </Page>

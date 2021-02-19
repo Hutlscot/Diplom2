@@ -34,9 +34,9 @@
         </materialDesign:ColorZone>
         <Grid Grid.Row="0" Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Image Width="46" HorizontalAlignment="Left" Source="/Diplom;component/Resources/logo.png"></Image>
+                <Image Width="46" HorizontalAlignment="Left" Source="/Diplom;component/Resources/logo1.jpg"></Image>
                 <TextBlock FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
-                Томский техникум<LineBreak/>информационных технологий
+                    Молодежный центр СПО
                 </TextBlock>
             </StackPanel>
         </Grid>

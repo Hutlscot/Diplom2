@@ -1,5 +1,7 @@
 ﻿namespace Diplom
 {
+    using System.Windows;
+
     using Diplom.View;
 
     public static class Transfer
@@ -21,6 +23,16 @@
                 case "Руководители":
                 {
                     ManagerFrame.Frame.Navigate(new PageManagers());
+                    break;
+                }
+                case "Добавить студента":
+                {
+                    ManagerFrame.Frame.Navigate(new PageAddStudent());
+                    break;
+                }
+                default:
+                {
+                    MessageBox.Show("Такой страницы еще нет");
                     break;
                 }
             }
