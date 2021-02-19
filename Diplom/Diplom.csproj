@@ -77,10 +77,31 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PageEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageManagers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageStudents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OtherClasses\ManagerFrame.cs" />
     <Compile Include="OtherClasses\Transfer.cs" />
+    <Compile Include="View\PageEvents.xaml.cs">
+      <DependentUpon>PageEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageManagers.xaml.cs">
+      <DependentUpon>PageManagers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageStudents.xaml.cs">
+      <DependentUpon>PageStudents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VM\Menu.cs" />
     <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

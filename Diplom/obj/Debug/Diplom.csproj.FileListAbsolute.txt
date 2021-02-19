@@ -21,3 +21,9 @@ C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\App.baml
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\MainMenu.g.cs
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\MainMenu.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageManagers.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageManagers.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageEvents.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageStudents.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageEvents.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageStudents.baml
