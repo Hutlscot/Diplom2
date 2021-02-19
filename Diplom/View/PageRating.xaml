@@ -4,11 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Diplom.View"
+      xmlns:VM="clr-namespace:Diplom.VM"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Рейтинг" Background="White" FontSize="15">
-
+    <Page.DataContext>
+        <VM:RatingVM></VM:RatingVM>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
@@ -35,10 +38,10 @@
                          Margin="10 -5"
                          MaxLength="25"
                          materialDesign:HintAssist.Hint="Введите фамилию"
-                         materialDesign:TextFieldAssist.HasClearButton="True" />
+                         materialDesign:TextFieldAssist.HasClearButton="True" Text="{Binding textSearch}"/>
             </StackPanel>
-            <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" />
-            <Button HorizontalAlignment="Right" Content="Начислить" Margin="20" />
+            <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" Command="{Binding ImportRating}"/>
+            <Button HorizontalAlignment="Right" Content="Начислить" Margin="20" Command="{Binding AddRating}"/>
         </Grid>
     </Grid>
 </Page>
