@@ -30,6 +30,11 @@
                     ManagerFrame.Frame.Navigate(new PageAddStudent());
                     break;
                 }
+                case "Рейтинг":
+                {
+                    ManagerFrame.Frame.Navigate(new PageRating());
+                    break;
+                }
                 default:
                 {
                     MessageBox.Show("Такой страницы еще нет");

@@ -1,0 +1,44 @@
+﻿<Page x:Class="Diplom.View.PageRating"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Diplom.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Рейтинг" Background="White" FontSize="15">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="ПОО" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="№ Группы" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="Общий рейтинг" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="Направление" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="Компетенции" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="Мероприятия" Binding="{Binding MiddleName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+                <TextBlock>Найти:</TextBlock>
+                <TextBox Width="150"
+                         Margin="10 -5"
+                         MaxLength="25"
+                         materialDesign:HintAssist.Hint="Введите фамилию"
+                         materialDesign:TextFieldAssist.HasClearButton="True" />
+            </StackPanel>
+            <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" />
+            <Button HorizontalAlignment="Right" Content="Начислить" Margin="20" />
+        </Grid>
+    </Grid>
+</Page>

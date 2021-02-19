@@ -16,8 +16,9 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" SelectionMode="Single">
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
@@ -27,9 +28,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">
-            <Button HorizontalAlignment="Left" Content="Добавить" Command="{Binding AddCommand}" Margin="20"></Button>
-            <Button HorizontalAlignment="Center" Content="Рейтинг" Margin="10"></Button>
-            <Button HorizontalAlignment="Right" Content="Удалить" Margin="20"></Button>
+            <Button HorizontalAlignment="Left" Content="Добавить" Command="{Binding AddStudent}" Margin="20"></Button>
+            <Button HorizontalAlignment="Center" Content="Рейтинг" Command="{Binding OpenRating}" Margin="10"></Button>
+            <Button HorizontalAlignment="Right" Content="Удалить" Margin="20" Command="{Binding DeleteStudent}"></Button>
         </Grid>
     </Grid>
 </Page>

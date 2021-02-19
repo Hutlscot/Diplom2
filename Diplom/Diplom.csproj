@@ -66,6 +66,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="OtherClasses\RelayCommand.cs" />
+    <Compile Include="View\PageRating.xaml.cs">
+      <DependentUpon>PageRating.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VM\StudentMV.cs" />
     <Page Include="View\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageManagers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageRating.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

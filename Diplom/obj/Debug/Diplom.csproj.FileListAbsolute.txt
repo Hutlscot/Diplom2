@@ -29,3 +29,5 @@ C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageEvents.baml
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageStudents.baml
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageAddStudent.g.cs
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageAddStudent.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageRating.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom\Diplom\obj\Debug\View\PageRating.baml
