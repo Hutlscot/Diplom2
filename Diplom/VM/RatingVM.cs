@@ -26,7 +26,7 @@ namespace Diplom.VM
                 return addRating ?? (
                     addRating = new RelayCommand(obj =>
                     {
-                        MessageBox.Show("нет команды");
+                        Transfer.GoTo("Начислить рейтинг");
                     }));
             }
         }

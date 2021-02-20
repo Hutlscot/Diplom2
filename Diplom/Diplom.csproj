@@ -81,9 +81,20 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="OtherClasses\RelayCommand.cs" />
+    <Compile Include="View\PageAddEvent.xaml.cs">
+      <DependentUpon>PageAddEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageAddRating.xaml.cs">
+      <DependentUpon>PageAddRating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageListManagers.xaml.cs">
+      <DependentUpon>PageListManagers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageRating.xaml.cs">
       <DependentUpon>PageRating.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VM\AddEventVM.cs" />
+    <Compile Include="VM\AddRatingVM.cs" />
     <Compile Include="VM\AddStudentVM.cs" />
     <Compile Include="VM\EventsVM.cs" />
     <Compile Include="VM\RatingVM.cs" />
@@ -100,11 +111,23 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PageAddEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageAddRating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PageAddStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageListManagers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

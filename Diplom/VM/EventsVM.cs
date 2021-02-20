@@ -22,7 +22,7 @@ namespace Diplom.VM
             {
                 return addEvent ?? (addEvent = new RelayCommand(obj =>
                   {
-                      MessageBox.Show("Нет команды");
+                      Transfer.GoTo("Добавить мероприятие");
                   }));
             }
         }
