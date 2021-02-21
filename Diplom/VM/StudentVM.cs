@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Diplom.VM
 {
+    using Diplom.OtherClasses;
     using System.Windows;
 
     public class StudentVM
     {
+        public IEnumerable<Students> students { get; set; }
+
+        public Students selectedStudent { get; set; }
+
         public StudentVM()
         {
-
+            var dataContext = new DataContext();
+            students = dataContext.Students.ToList();
         }
         //открыть список студентов
         private RelayCommand addStudent;
@@ -49,7 +55,14 @@ namespace Diplom.VM
                 return deleteStudent ??
                        (deleteStudent = new RelayCommand(obj =>
                        {
-                           MessageBox.Show("нет команды");
+                           if (selectedStudent != null)
+                           {
+                               DataContext dataContext = new DataContext();
+                               dataContext.Students.Remove(dataContext.Students.Find(selectedStudent.Id));
+                               dataContext.SaveChanges();
+                               Transfer.GoTo("Студенты");
+                               Mes.SucMes("Студент успешно удален");
+                           }
                        }));
             }
         }

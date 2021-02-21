@@ -27,8 +27,8 @@ namespace Diplom.View
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var text = ((TextBlock)sender).Text;
-            ManagerFrame.Frame.Navigate(new PageListManagers(text));
+            var selectedDirection = ((Directions)(((TextBlock)sender).DataContext));
+            ManagerFrame.Frame.Navigate(new PageListManagers(selectedDirection));
         }
     }
 }

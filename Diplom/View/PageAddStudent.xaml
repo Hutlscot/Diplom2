@@ -20,33 +20,46 @@
                 <TextBox
                     MaxLength="25"
                     materialDesign:HintAssist.Hint="Фамилия"
-                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.LastName}"/>
                 <TextBox
                     MaxLength="25"
                     materialDesign:HintAssist.Hint="Имя"
                     materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TransitionAssist.DisableTransitions="True" />
+                    materialDesign:TransitionAssist.DisableTransitions="True" 
+                    Text="{Binding student.Name}"/>
                 <TextBox
                     MaxLength="25"
                     materialDesign:HintAssist.Hint="Отчество"
-                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.MiddleName}"/>
                 <TextBox
                     Height="50"
                     AcceptsReturn="True"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
                     materialDesign:HintAssist.Hint="ПОО"
-                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.POO}"/>
                 <TextBox
                     MaxLength="10"
                     TextWrapping="Wrap"
                     materialDesign:HintAssist.Hint="№ Группы"
-                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.Group}"/>
                 <TextBox
                     MaxLength="7"
                     Name="txt_division_code"
                     materialDesign:HintAssist.Hint="Курс"
-                    materialDesign:TextFieldAssist.HasClearButton="True" />
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.Cours}"/>
+                <ComboBox materialDesign:HintAssist.Hint="Направление" ItemsSource="{Binding directions}" SelectedItem="{Binding selectedDirection}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
                 <Button Tag="98" Margin="25"
                         Name="btm_next"
                         Style="{StaticResource MaterialDesignRaisedButton}"

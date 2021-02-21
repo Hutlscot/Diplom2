@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DatabaseModelContainer" CdmEntityContainer="DataContext">
+    <EntitySetMapping Name="Directions">
+      <EntityTypeMapping TypeName="DatabaseModel.Directions">
+        <MappingFragment StoreEntitySet="Directions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="DatabaseModel.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="DatabaseModel.Managers">
+        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="DatabaseModel.Students">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+          <ScalarProperty Name="POO" ColumnName="POO" />
+          <ScalarProperty Name="Cours" ColumnName="Cours" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сompetencies">
+      <EntityTypeMapping TypeName="DatabaseModel.Сompetencies">
+        <MappingFragment StoreEntitySet="Сompetencies">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rating">
+      <EntityTypeMapping TypeName="DatabaseModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IdCompetencies" ColumnName="IdCompetencies" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GroupCompetencies" TypeName="DatabaseModel.GroupCompetencies" StoreEntitySet="GroupCompetencies">
+      <EndProperty Name="Events">
+        <ScalarProperty Name="Id" ColumnName="IdEvent" />
+      </EndProperty>
+      <EndProperty Name="Сompetencies">
+        <ScalarProperty Name="Id" ColumnName="IdCompetencies" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GroupManagers" TypeName="DatabaseModel.GroupManagers" StoreEntitySet="GroupManagers">
+      <EndProperty Name="Managers">
+        <ScalarProperty Name="Id" ColumnName="IdManager" />
+      </EndProperty>
+      <EndProperty Name="Directions">
+        <ScalarProperty Name="Id" ColumnName="IdDirection" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

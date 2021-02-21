@@ -7,19 +7,19 @@
       xmlns:diplom="clr-namespace:Diplom"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Руководители" Background="White">
+      Title="Руководители" Background="White" FontSize="15">
     <Page.DataContext>
         <diplom:ManagersVM></diplom:ManagersVM>
     </Page.DataContext>
     <Grid>
         <ScrollViewer HorizontalAlignment="Center" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0">
-            <ListBox ItemsSource="{Binding MenuItems}">
+            <ListBox ItemsSource="{Binding directions}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ListBoxItem x:Name="ListViewItemMenu" Margin="-8" FontSize="15">
                             <Grid Width="280" Height="46">
                                 <TextBlock TextAlignment="Center" MouseDown="TextBlock_MouseDown" Padding="25 14"
-                                           Text="{Binding Path=Title}" />
+                                           Text="{Binding Path=Name}" />
                             </Grid>
                         </ListBoxItem>
                     </DataTemplate>

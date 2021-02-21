@@ -16,15 +16,15 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding students}" SelectedItem="{Binding selectedStudent}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="№" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="ПОО" Binding="{Binding MiddleName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="№ Группы" Binding="{Binding MiddleName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Курс" Binding="{Binding MiddleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ПОО" Binding="{Binding POO}"></DataGridTextColumn>
+                <DataGridTextColumn Header="№ Группы" Binding="{Binding Group}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Курс" Binding="{Binding Cours}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">

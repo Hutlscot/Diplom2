@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище DatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Directions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdDirection" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupCompetencies">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+            <PropertyRef Name="IdCompetencies" />
+          </Key>
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="IdCompetencies" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupManagers">
+          <Key>
+            <PropertyRef Name="IdDirection" />
+            <PropertyRef Name="IdManager" />
+          </Key>
+          <Property Name="IdDirection" Type="int" Nullable="false" />
+          <Property Name="IdManager" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contacts" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsMainManager" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "C:\USERS\PONI4\SOURCE\REPOS\DIPLOM2\DIPLOM\DATABASE.MDF.dbo.Rating" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdStudent" />
+            <PropertyRef Name="IdCompetencies" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdCompetencies" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Group" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cours" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="POO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdDirection" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сompetencies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Events_ToTable">
+          <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="IdDirection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupCompetencies_ToCompetencies">
+          <End Role="Сompetencies" Type="Self.Сompetencies" Multiplicity="1" />
+          <End Role="GroupCompetencies" Type="Self.GroupCompetencies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сompetencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCompetencies">
+              <PropertyRef Name="IdCompetencies" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupCompetencies_ToEvents">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="GroupCompetencies" Type="Self.GroupCompetencies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCompetencies">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ToTable">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ToTable_1">
+          <End Role="Сompetencies" Type="Self.Сompetencies" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сompetencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="IdCompetencies" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ToDirection">
+          <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="IdDirection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToDirections">
+          <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
+          <End Role="GroupManagers" Type="Self.GroupManagers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupManagers">
+              <PropertyRef Name="IdDirection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToManagers">
+          <End Role="Managers" Type="Self.Managers" Multiplicity="1" />
+          <End Role="GroupManagers" Type="Self.GroupManagers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupManagers">
+              <PropertyRef Name="IdManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DatabaseModelContainer">
+          <EntitySet Name="Directions" EntityType="Self.Directions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupCompetencies" EntityType="Self.GroupCompetencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupManagers" EntityType="Self.GroupManagers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сompetencies" EntityType="Self.Сompetencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rating].[Id] AS [Id], 
+    [Rating].[IdStudent] AS [IdStudent], 
+    [Rating].[IdCompetencies] AS [IdCompetencies], 
+    [Rating].[Count] AS [Count]
+    FROM [dbo].[Rating] AS [Rating]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Events_ToTable" Association="Self.FK_Events_ToTable">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupCompetencies_ToCompetencies" Association="Self.FK_GroupCompetencies_ToCompetencies">
+            <End Role="Сompetencies" EntitySet="Сompetencies" />
+            <End Role="GroupCompetencies" EntitySet="GroupCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupCompetencies_ToEvents" Association="Self.FK_GroupCompetencies_ToEvents">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="GroupCompetencies" EntitySet="GroupCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ToTable" Association="Self.FK_Rating_ToTable">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ToTable_1" Association="Self.FK_Rating_ToTable_1">
+            <End Role="Сompetencies" EntitySet="Сompetencies" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ToDirection" Association="Self.FK_Students_ToDirection">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToDirections" Association="Self.FK_Table_ToDirections">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="GroupManagers" EntitySet="GroupManagers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToManagers" Association="Self.FK_Table_ToManagers">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="GroupManagers" EntitySet="GroupManagers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Directions" EntityType="DatabaseModel.Directions" />
+          <EntitySet Name="Events" EntityType="DatabaseModel.Events" />
+          <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
+          <EntitySet Name="Students" EntityType="DatabaseModel.Students" />
+          <EntitySet Name="Сompetencies" EntityType="DatabaseModel.Сompetencies" />
+          <EntitySet Name="Rating" EntityType="DatabaseModel.Rating" />
+          <AssociationSet Name="FK_Events_ToTable" Association="DatabaseModel.FK_Events_ToTable">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ToDirection" Association="DatabaseModel.FK_Students_ToDirection">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ToTable" Association="DatabaseModel.FK_Rating_ToTable">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ToTable_1" Association="DatabaseModel.FK_Rating_ToTable_1">
+            <End Role="Сompetencies" EntitySet="Сompetencies" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="GroupCompetencies" Association="DatabaseModel.GroupCompetencies">
+            <End Role="Сompetencies" EntitySet="Сompetencies" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Managers" EntitySet="Managers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Directions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Events" Relationship="DatabaseModel.FK_Events_ToTable" FromRole="Directions" ToRole="Events" />
+          <NavigationProperty Name="Students" Relationship="DatabaseModel.FK_Students_ToDirection" FromRole="Directions" ToRole="Students" />
+          <NavigationProperty Name="Managers" Relationship="DatabaseModel.GroupManagers" FromRole="Directions" ToRole="Managers" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdDirection" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Directions" Relationship="DatabaseModel.FK_Events_ToTable" FromRole="Events" ToRole="Directions" />
+          <NavigationProperty Name="Сompetencies" Relationship="DatabaseModel.GroupCompetencies" FromRole="Events" ToRole="Сompetencies" />
+        </EntityType>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contacts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cours" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="POO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdDirection" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Directions" Relationship="DatabaseModel.FK_Students_ToDirection" FromRole="Students" ToRole="Directions" />
+          <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Students" ToRole="Rating" />
+        </EntityType>
+        <EntityType Name="Сompetencies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Сompetencies" ToRole="Rating" />
+          <NavigationProperty Name="Events" Relationship="DatabaseModel.GroupCompetencies" FromRole="Сompetencies" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdStudent" />
+            <PropertyRef Name="IdCompetencies" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdCompetencies" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Students" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Rating" ToRole="Students" />
+          <NavigationProperty Name="Сompetencies" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Rating" ToRole="Сompetencies" />
+        </EntityType>
+        <Association Name="FK_Events_ToTable">
+          <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="1" />
+          <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="IdDirection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ToDirection">
+          <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="1" />
+          <End Type="DatabaseModel.Students" Role="Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="IdDirection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ToTable">
+          <End Type="DatabaseModel.Students" Role="Students" Multiplicity="1" />
+          <End Type="DatabaseModel.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ToTable_1">
+          <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="1" />
+          <End Type="DatabaseModel.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сompetencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="IdCompetencies" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GroupCompetencies">
+          <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="*" />
+          <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
+        </Association>
+        <Association Name="GroupManagers">
+          <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
+          <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DatabaseModelContainer" CdmEntityContainer="DataContext">
+          <EntitySetMapping Name="Directions">
+            <EntityTypeMapping TypeName="DatabaseModel.Directions">
+              <MappingFragment StoreEntitySet="Directions">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="DatabaseModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="DatabaseModel.Managers">
+              <MappingFragment StoreEntitySet="Managers">
+                <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DatabaseModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+                <ScalarProperty Name="POO" ColumnName="POO" />
+                <ScalarProperty Name="Cours" ColumnName="Cours" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сompetencies">
+            <EntityTypeMapping TypeName="DatabaseModel.Сompetencies">
+              <MappingFragment StoreEntitySet="Сompetencies">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rating">
+            <EntityTypeMapping TypeName="DatabaseModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IdCompetencies" ColumnName="IdCompetencies" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="GroupCompetencies" TypeName="DatabaseModel.GroupCompetencies" StoreEntitySet="GroupCompetencies">
+            <EndProperty Name="Events">
+              <ScalarProperty Name="Id" ColumnName="IdEvent" />
+            </EndProperty>
+            <EndProperty Name="Сompetencies">
+              <ScalarProperty Name="Id" ColumnName="IdCompetencies" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GroupManagers" TypeName="DatabaseModel.GroupManagers" StoreEntitySet="GroupManagers">
+            <EndProperty Name="Managers">
+              <ScalarProperty Name="Id" ColumnName="IdManager" />
+            </EndProperty>
+            <EndProperty Name="Directions">
+              <ScalarProperty Name="Id" ColumnName="IdDirection" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
