@@ -88,8 +88,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="OtherClasses\ElementsMenu.cs" />
     <Compile Include="OtherClasses\ErrorsManager.cs" />
     <Compile Include="OtherClasses\PartialManager.cs" />
+    <Compile Include="View\AddCompetencies.xaml.cs">
+      <DependentUpon>AddCompetencies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddStatus.xaml.cs">
+      <DependentUpon>AddStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageAddEvent.xaml.cs">
       <DependentUpon>PageAddEvent.xaml</DependentUpon>
     </Compile>
@@ -98,6 +105,9 @@
     </Compile>
     <Compile Include="View\PageListManagers.xaml.cs">
       <DependentUpon>PageListManagers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowAddStatusStudent.xaml.cs">
+      <DependentUpon>WindowAddStatusStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\AddEventVM.cs" />
     <Compile Include="Directions.cs">
@@ -143,6 +153,14 @@
     <Compile Include="Сompetencies.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Page Include="View\AddCompetencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -184,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageStudents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowAddStatusStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

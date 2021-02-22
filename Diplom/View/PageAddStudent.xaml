@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Diplom.View"
       xmlns:VM="clr-namespace:Diplom.VM"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:Diplom.VM"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       mc:Ignorable="d"
       Title="Добавление студента" Height="450" Width="800" Background="White" FontSize="15">
     <Page.DataContext>

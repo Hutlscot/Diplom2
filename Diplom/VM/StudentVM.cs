@@ -1,53 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Diplom.OtherClasses;
 
 namespace Diplom.VM
 {
-    using Diplom.OtherClasses;
-    using System.Windows;
-
     public class StudentVM
     {
-        public IEnumerable<Students> students { get; set; }
+        //открыть список студентов
+        private RelayCommand addStudent;
 
-        public Students selectedStudent { get; set; }
+        //удалить студента
+        private RelayCommand deleteStudent;
+
+        //открыть рейтинг
+        private RelayCommand openRating;
 
         public StudentVM()
         {
             var dataContext = new DataContext();
             students = dataContext.Students.ToList();
         }
-        //открыть список студентов
-        private RelayCommand addStudent;
+
+        public IEnumerable<Students> students { get; set; }
+
+        public Students selectedStudent { get; set; }
+
         public RelayCommand AddStudent
         {
             get
             {
                 return addStudent ??
-                       (addStudent = new RelayCommand(obj =>
-                       {
-                           Transfer.GoTo("Добавить студента");
-                       }));
+                       (addStudent = new RelayCommand(obj => { Transfer.GoTo("Добавить студента"); }));
             }
         }
-        //открыть рейтинг
-        private RelayCommand openRating;
+
         public RelayCommand OpenRating
         {
             get
             {
                 return openRating ??
-                       (openRating = new RelayCommand(obj =>
-                       {
-                           Transfer.GoTo("Рейтинг");
-                       }));
+                       (openRating = new RelayCommand(obj => { Transfer.GoTo("Рейтинг"); }));
             }
         }
-        //удалить студента
-        private RelayCommand deleteStudent;
+
         public RelayCommand DeleteStudent
         {
             get
@@ -55,14 +50,16 @@ namespace Diplom.VM
                 return deleteStudent ??
                        (deleteStudent = new RelayCommand(obj =>
                        {
-                           if (selectedStudent != null)
+                           if (selectedStudent == null)
                            {
-                               DataContext dataContext = new DataContext();
-                               dataContext.Students.Remove(dataContext.Students.Find(selectedStudent.Id));
-                               dataContext.SaveChanges();
-                               Transfer.GoTo("Студенты");
-                               Mes.SucMes("Студент успешно удален");
+                               Mes.ErrorMes("Сначала выберите");
+                               return;
                            }
+                           var dataContext = new DataContext();
+                           dataContext.Students.Remove(dataContext.Students.Find(selectedStudent.Id));
+                           dataContext.SaveChanges();
+                           Transfer.GoTo("Студенты");
+                           Mes.SucMes("Студент успешно удален");
                        }));
             }
         }

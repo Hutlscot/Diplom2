@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Diplom.OtherClasses;
 
 namespace Diplom.VM
 {
     public class EventsVM
     {
+        public List<Events> events { get; set; }
+
+        public Events selectedEvent { get; set; }
         public EventsVM()
         {
-
+            var dataContext = new DataContext();
+            events = dataContext.Events.ToList();
         }
 
         //добавить мероприятие
@@ -48,7 +53,26 @@ namespace Diplom.VM
             {
                 return deleteEvent ?? (deleteEvent = new RelayCommand(obj =>
                 {
-                    MessageBox.Show("Нет команды");
+                    try
+                    {
+                        if (selectedEvent != null)
+                        {
+                            var dataContext = new DataContext();
+                            dataContext.Events.Remove(dataContext.Events.Find(selectedEvent.Id));
+                            dataContext.SaveChanges();
+                            Mes.SucMes("Успешное удалено");
+                            Transfer.GoTo("Мероприятия");
+                        }
+                        else
+                        {
+                            Mes.ErrorMes("Сначала выберите");
+                        }
+                    }
+                    catch
+                    {
+                        Mes.ErrorMes("Не удалось удалить");
+                    }
+
                 }));
             }
         }

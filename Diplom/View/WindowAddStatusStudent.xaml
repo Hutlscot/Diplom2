@@ -1,0 +1,90 @@
+﻿<Window x:Class="Diplom.View.WindowAddStatusStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom.View"
+        mc:Ignorable="d"
+        Title="Добавление статусов студентов" Height="400" Width="400" FontSize="15">
+    <Grid>
+        <materialDesign:DialogHost Margin="30"
+ 
+  Style="{StaticResource MaterialDesignEmbeddedDialogHost}"
+  DialogMargin="8">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel
+      Margin="16">
+                    <TextBlock
+        Text="Add a new animal." />
+                    <TextBox
+        Margin="0 8 0 0"
+        HorizontalAlignment="Stretch"
+        x:Name="AnimalTextBox" />
+                    <StackPanel
+        Orientation="Horizontal"
+        HorizontalAlignment="Right">
+                        <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsDefault="True"
+          Margin="0 8 8 0"
+          Content="ACCEPT"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    True
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                        </Button>
+                        <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Content="CANCEL"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    False
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+            <Border
+    BorderThickness="1"
+    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+    ClipToBounds="True"
+    HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+          Height="*" />
+                        <RowDefinition
+          Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListBox>
+                    </ListBox>
+                    <materialDesign:ColorZone
+                        Mode="PrimaryMid"
+                        Grid.Row="1"
+                        Effect="{DynamicResource MaterialDesignShadowDepth5}">
+                        <TextBlock
+                        Margin="16"
+                        Text="Статусы студентов" />
+                    </materialDesign:ColorZone>
+                    <Button
+                        Background="#aeea00"
+                        Foreground="Black"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                         Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Grid.Row="0"
+                        Margin="0 0 28 -20"
+                        Content="{materialDesign:PackIcon Kind=Plus, Size=22}" />
+                </Grid>
+            </Border>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>

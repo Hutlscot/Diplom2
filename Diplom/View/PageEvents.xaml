@@ -17,11 +17,11 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding events}" SelectedItem="{Binding selectedEvent}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Направление" Binding="{Binding Direction}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Направление" Binding="{Binding Path=Directions.Name}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">

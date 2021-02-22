@@ -37,6 +37,7 @@ namespace Diplom.VM
                             if (selectedDirection == null)
                             {
                                 Mes.ErrorMes("Заполните все данные");
+                                return;
                             }
                             student.IdDirection = selectedDirection.Id;
                             var dataContext = new DataContext();
