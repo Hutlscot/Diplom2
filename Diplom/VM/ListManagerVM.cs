@@ -9,11 +9,11 @@ namespace Diplom.VM
     public class ListManagerVM
     {
         public string Title { get; set; }
-        public Managers Manager { get; set; }
+        public Managers MainManager { get; set; }
 
         public ListManagerVM(Directions direction)
         {
-            Manager = direction.Managers.Where(x => x.IsMainManager).SingleOrDefault();
+            MainManager = direction.Managers.SingleOrDefault(x => x.IsMainManager);
             Title = $"Руководители. Направление '{direction.Name}'";
         }
     }

@@ -40,11 +40,6 @@
                     ManagerFrame.Frame.Navigate(new PageAddEvent());
                     break;
                 }
-                case "Начислить рейтинг":
-                {
-                    ManagerFrame.Frame.Navigate(new PageAddRating());
-                    break;
-                }
                 default:
                 {
                     MessageBox.Show("Такой страницы еще нет");

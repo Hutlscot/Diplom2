@@ -17,18 +17,32 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding students}" SelectedItem="{Binding selectedStudent}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="№" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" />
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" />
-                <DataGridTextColumn Header="ПОО" Binding="{Binding MiddleName}" />
-                <DataGridTextColumn Header="№ Группы" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="ПОО" Binding="{Binding POO}" />
+                <DataGridTextColumn Header="№ Группы" Binding="{Binding Group}" />
                 <DataGridTextColumn Header="Общий рейтинг" Binding="{Binding MiddleName}" />
-                <DataGridTextColumn Header="Направление" Binding="{Binding MiddleName}" />
-                <DataGridTextColumn Header="Компетенции" Binding="{Binding MiddleName}" />
-                <DataGridTextColumn Header="Мероприятия" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="Направление" Binding="{Binding Directions.Name}" />
+                <DataGridTextColumn Header="Компетенции" Binding="{Binding Rating.Count}" />
+                <DataGridTemplateColumn Header="Список мероприятий">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Expander Header="Раскрыть список">
+                                <DataGrid ItemsSource="{Binding selectedStudent.Directions.Events}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="№" Binding="{Binding Id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Expander>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">

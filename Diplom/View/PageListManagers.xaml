@@ -23,7 +23,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="{Binding Manager.InfoMainmanager}" TextAlignment="Center"></TextBlock>
+            <TextBlock Name="txt_main_manager" TextAlignment="Center">У этого направления еще нет главного руководителя</TextBlock>
         </Grid>
     </Grid>
 </Page>

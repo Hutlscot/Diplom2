@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Diplom.VM;
 
 namespace Diplom.View
 {
@@ -20,9 +21,13 @@ namespace Diplom.View
     /// </summary>
     public partial class PageAddRating : Page
     {
-        public PageAddRating()
+        public PageAddRating(Students selectedStudent)
         {
+            var vm = new AddRatingVM(selectedStudent);
+            DataContext = vm;
             InitializeComponent();
+            
+
         }
     }
 }

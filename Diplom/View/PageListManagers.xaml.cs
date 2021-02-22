@@ -23,11 +23,12 @@ namespace Diplom.View
     {
         public PageListManagers(Directions direction)
         {
-            ListManagerVM VM = new ListManagerVM(direction);
-            DataContext = VM;
+            var vm = new ListManagerVM(direction);
+            DataContext = vm;
             InitializeComponent();
-            
             grid.ItemsSource = direction.Managers.ToList();
+            if(vm.MainManager!=null)
+                txt_main_manager.Text = vm.MainManager.InfoMainmanager;
         }
     }
 }

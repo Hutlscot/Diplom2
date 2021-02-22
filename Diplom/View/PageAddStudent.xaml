@@ -14,7 +14,7 @@
     <Grid>
         <GroupBox Margin="30" HorizontalAlignment="Center" Header="Данные студента" Width="300"
                   materialDesign:ColorZoneAssist.Mode="Custom"
-                  materialDesign:ColorZoneAssist.Background="Black"
+                  materialDesign:ColorZoneAssist.Background="{StaticResource PrimaryHueMidBrush}"
                   materialDesign:ColorZoneAssist.Foreground="White">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <TextBox
@@ -66,7 +66,7 @@
                         Width="150"
                         ToolTip="Для сохранения необходимо заполнить все поля"
                         Command="{Binding AddStudent}">
-                    <TextBlock Foreground="Black" Margin="0,0,0,3">
+                    <TextBlock Foreground="White" Margin="0,0,0,3">
                         Сохранить
                     </TextBlock>
                 </Button>

@@ -88,7 +88,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="OtherClasses\ElementsMenu.cs" />
     <Compile Include="OtherClasses\ErrorsManager.cs" />
     <Compile Include="OtherClasses\PartialManager.cs" />
     <Compile Include="View\AddCompetencies.xaml.cs">
@@ -226,8 +225,8 @@
       <DependentUpon>PageStudents.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\ManagersVM.cs" />
-    <Compile Include="VM\Menu.cs" />
-    <Compile Include="Model\MenuItem.cs" />
+    <Compile Include="VM\Statuses.cs" />
+    <Compile Include="Model\StatusStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

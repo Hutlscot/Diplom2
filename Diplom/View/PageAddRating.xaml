@@ -1,14 +1,51 @@
 ﻿<Page x:Class="Diplom.View.PageAddRating"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Diplom.View"
-      mc:Ignorable="d" 
+      xmlns:vm="clr-namespace:Diplom.VM"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageAddRating">
-
+      Title="Начисление рейтинга" Background="White" FontSize="15">
+    
     <Grid>
-        
+        <GroupBox Margin="30" HorizontalAlignment="Center" Header="Данные для начисления" Width="300"
+                  materialDesign:ColorZoneAssist.Mode="Custom"
+                  materialDesign:ColorZoneAssist.Background="{StaticResource PrimaryHueMidBrush}"
+                  materialDesign:ColorZoneAssist.Foreground="White">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding SelectedStudent.LastName}"></TextBlock>
+                <TextBlock Text="{Binding SelectedStudent.Name}"></TextBlock>
+                <TextBlock Text="{Binding SelectedStudent.MiddleName}"></TextBlock>
+                <ComboBox materialDesign:HintAssist.Hint="Выберите мероприятие" ItemsSource="{Binding listEvents}"
+                          SelectedItem="{Binding selectedDirection}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox materialDesign:HintAssist.Hint="Статус студента" ItemsSource="{Binding listStatuses}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Info}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Button Tag="98" Margin="25"
+                        Name="btm_next"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="150"
+                        ToolTip="Для сохранения необходимо заполнить все поля"
+                        Command="{Binding AddRationg}">
+                    <TextBlock Foreground="White" Margin="0,0,0,3">
+                        Сохранить
+                    </TextBlock>
+                </Button>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

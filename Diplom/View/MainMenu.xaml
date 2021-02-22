@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Меню" Height="550" Width="1000" ResizeMode="NoResize" FontSize="15">
     <Window.DataContext>
-        <local:Menu/>
+        <local:Statuses/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0">
-                <ListBox ItemsSource="{Binding MenuItems}">
+                <ListBox ItemsSource="{Binding StatusCollection}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem x:Name="ListViewItemMenu" Margin="-8" FontSize="15">
