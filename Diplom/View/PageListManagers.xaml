@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Descriprion}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Контакты" Binding="{Binding Group}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Контакты" Binding="{Binding Contacts}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">

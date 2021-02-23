@@ -18,10 +18,12 @@ namespace Diplom.VM
         public Students selectedStudent { get; set; }
 
         public List<Students> students { get; set; }
+        public ObservableCollection<Events> Events { get; set; }
         public RatingVM()
         {
             var dataContext = new DataContext();
             students = dataContext.Students.ToList();
+            
         }
 
         //начислить рейтинг

@@ -16,10 +16,10 @@ namespace Diplom
     {
         public int Id { get; set; }
         public int IdStudent { get; set; }
-        public int IdCompetencies { get; set; }
+        public int IdEvent { get; set; }
         public int Count { get; set; }
     
+        public virtual Events Events { get; set; }
         public virtual Students Students { get; set; }
-        public virtual Сompetencies Сompetencies { get; set; }
     }
 }

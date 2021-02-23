@@ -26,12 +26,11 @@ namespace Diplom
         public string MiddleName { get; set; }
         public string Contacts { get; set; }
         public bool IsMainManager { get; set; }
-
         public string InfoMainmanager
         {
             get
             {
-                return "Главный руководитель: "+LastName + " " + Name + " \nКонтакты: " + Contacts;
+                return "Главный руководитель: " + LastName + " " + Name + " \nКонтакты: " + Contacts;
             }
         }
 

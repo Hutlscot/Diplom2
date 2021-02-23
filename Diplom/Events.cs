@@ -18,6 +18,7 @@ namespace Diplom
         public Events()
         {
             this.Сompetencies = new HashSet<Сompetencies>();
+            this.Rating = new HashSet<Rating>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace Diplom
         public virtual Directions Directions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Сompetencies> Сompetencies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rating> Rating { get; set; }
     }
 }

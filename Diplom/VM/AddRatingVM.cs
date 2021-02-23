@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +12,19 @@ namespace Diplom.VM
     public class AddRatingVM
     {
         public ObservableCollection<StatusStudent> listStatuses { get; set; }
+        public StatusStudent selectedStatus { get; set; }
 
         public List<Events> listEvents { get; set; }
+        public Events selectedEvent { get; set; }
 
         public Students SelectedStudent { get; set; }
 
         public Rating AddedRating { get; set; }
+        
 
         public AddRatingVM(Students selectedStudens)
         {
+            AddedRating = new Rating();
             SelectedStudent = selectedStudens;
             var dataContext = new DataContext();
             listEvents = dataContext.Events.ToList();
@@ -42,7 +47,33 @@ namespace Diplom.VM
             {
                 return addRationg ?? (addRationg = new RelayCommand(obj =>
                 {
-                    Mes.ErrorMes("sdfsdf");
+                    try
+                    {
+                        if (selectedEvent == null || selectedStatus == null)
+                        {
+                            Mes.ErrorMes("Сначала заполните все поля");
+                            return;
+                        }
+
+                        var listRatingStudent = SelectedStudent.Rating.ToList();
+                        if (listRatingStudent.Any(rating => rating.IdEvent == selectedEvent.Id))
+                        {
+                            Mes.ErrorMes("За это мероприятие студенту уже начислили балы");
+                            return;
+                        }
+                        AddedRating.IdStudent = SelectedStudent.Id;
+                        AddedRating.IdEvent = selectedEvent.Id;
+                        AddedRating.Count = selectedStatus.Count;
+                        var dataContext = new DataContext();
+                        dataContext.Rating.Add(AddedRating);
+                        dataContext.SaveChanges();
+                        Mes.SucMes("Успешно добавлено");
+                        Transfer.GoTo("Рейтинг");
+                    }
+                    catch
+                    {
+                        Mes.ErrorMes("Не удалось добавить");
+                    }
                 }));
             }
         }

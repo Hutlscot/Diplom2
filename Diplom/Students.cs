@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections.ObjectModel;
+using System.Linq;
+
 namespace Diplom
 {
     using System;
@@ -28,7 +31,59 @@ namespace Diplom
         public string Cours { get; set; }
         public string POO { get; set; }
         public int IdDirection { get; set; }
-    
+
+        public string competentciesRating
+        {
+            get
+            {
+                var result = "";
+                var dataContext = new DataContext();
+                var listCompetencies = dataContext.Сompetencies.ToList();
+                foreach (var competency in listCompetencies)
+                {
+                    var count = 0;
+                    foreach (var eventss in competency.Events)
+                    {
+                        count += eventss.Rating.Where(x => x.IdStudent == Id).Select(x=>x.Count).SingleOrDefault();
+                    }
+                    if(count!=0)
+                        result += $"{competency.Name}\n";
+                }
+
+                return result;
+            }
+        }
+        public ObservableCollection<Events> Events
+        {
+            get
+            {
+                var events = new ObservableCollection<Events>();
+                if (Rating.Any())
+                {
+                    foreach (var rat in Rating)
+                    {
+                        events.Add(rat.Events);
+                    }
+                }
+                return events;
+            }
+        }
+        public int OverAllRating
+        {
+            get
+            {
+                int sum = 0;
+                if (Rating.Any())
+                {
+                    foreach (var rating in Rating)
+                    {
+                        sum += rating.Count;
+                    }
+                }
+                return sum;
+            }
+        }
+
         public virtual Directions Directions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rating> Rating { get; set; }

@@ -20,14 +20,14 @@
                 <TextBlock Text="{Binding SelectedStudent.Name}"></TextBlock>
                 <TextBlock Text="{Binding SelectedStudent.MiddleName}"></TextBlock>
                 <ComboBox materialDesign:HintAssist.Hint="Выберите мероприятие" ItemsSource="{Binding listEvents}"
-                          SelectedItem="{Binding selectedDirection}">
+                          SelectedItem="{Binding selectedEvent}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Name}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <ComboBox materialDesign:HintAssist.Hint="Статус студента" ItemsSource="{Binding listStatuses}">
+                <ComboBox materialDesign:HintAssist.Hint="Статус студента" ItemsSource="{Binding listStatuses}" SelectedItem="{Binding selectedStatus}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Info}" />
