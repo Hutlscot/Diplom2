@@ -17,7 +17,8 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding students}" SelectedItem="{Binding selectedStudent}">
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding students}" SelectedItem="{Binding selectedStudent}"
+                  Name="grid">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" />
@@ -60,7 +61,7 @@
                          Margin="10 -5"
                          MaxLength="25"
                          materialDesign:HintAssist.Hint="Введите фамилию"
-                         materialDesign:TextFieldAssist.HasClearButton="True" Text="{Binding textSearch}"/>
+                         materialDesign:TextFieldAssist.HasClearButton="True" TextChanged="TextBoxBase_OnTextChanged"/>
             </StackPanel>
             <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" Command="{Binding ImportRating}"/>
             <Button HorizontalAlignment="Right" Content="Начислить" Margin="20" Command="{Binding AddRating}"/>

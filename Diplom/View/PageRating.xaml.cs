@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Diplom.View
 {
@@ -20,14 +21,19 @@ namespace Diplom.View
     /// </summary>
     public partial class PageRating : Page
     {
+        private readonly DataContext dataContext;
+        private readonly List<Students> students;
         public PageRating()
         {
             InitializeComponent();
+            dataContext = new DataContext();
+            students = dataContext.Students.ToList();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var textSearch = ((TextBox) sender).Text;
+            grid.ItemsSource = students.Where(x => x.LastName.ToLower().Contains(textSearch.ToLower())).ToList();
         }
     }
 }
