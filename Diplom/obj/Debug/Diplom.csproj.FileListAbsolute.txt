@@ -206,3 +206,5 @@ C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddCompetencies.g.cs
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddCompetencies.baml
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddStatus.g.cs
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddStatus.baml
+C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\MainPage.g.cs
+C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\MainPage.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Poni4\source\repos\Diplom\Diplom\App.xaml
-1225584789
+13864795143
 41432446814
-41616171381
+4271434721
 21424603702
-View\AddCompetencies.xaml;View\AddStatus.xaml;View\MainMenu.xaml;View\PageAddEvent.xaml;View\PageAddRating.xaml;View\PageAddStudent.xaml;View\PageEvents.xaml;View\PageListManagers.xaml;View\PageManagers.xaml;View\PageRating.xaml;View\PageStudents.xaml;View\WindowAddStatusStudent.xaml;
+View\AddCompetencies.xaml;View\AddStatus.xaml;View\MainMenu.xaml;View\MainPage.xaml;View\PageAddEvent.xaml;View\PageAddRating.xaml;View\PageAddStudent.xaml;View\PageEvents.xaml;View\PageListManagers.xaml;View\PageManagers.xaml;View\PageRating.xaml;View\PageStudents.xaml;View\WindowAddStatusStudent.xaml;
 
-False
+True
 

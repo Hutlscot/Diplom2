@@ -26,6 +26,7 @@ namespace Diplom
         {
             InitializeComponent();
             ManagerFrame.Frame = frame;
+            Transfer.GoTo("Главная");
         }
 
         //переходы по меню

@@ -17,6 +17,7 @@ namespace Diplom
         {
             StatusCollection = new ObservableCollection<StatusStudent>
             {
+                new StatusStudent("Главная",10),
                 new StatusStudent("Студенты",10),
                 new StatusStudent("Мероприятия", 10),
                 new StatusStudent("Руководители", 10)

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Diplom"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Меню" Height="550" Width="1000" ResizeMode="NoResize" FontSize="15">
+        Title="Виктория Петровская (с)" Height="550" Width="1000" ResizeMode="NoResize" FontSize="15">
     <Window.DataContext>
         <local:Statuses/>
     </Window.DataContext>
@@ -33,17 +33,12 @@
             </Grid>
         </materialDesign:ColorZone>
         <Grid Grid.Row="0" Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
-                <Image Width="46" HorizontalAlignment="Left" Source="/Diplom;component/Resources/logo1.jpg"></Image>
-                <TextBlock FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
-                    Молодежный центр СПО
-                </TextBlock>
-            </StackPanel>
+            <TextBlock FontSize="16" Text="Меню" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
         </Grid>
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0">
                 <ListBox ItemsSource="{Binding StatusCollection}">
@@ -59,22 +54,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </ScrollViewer>
-            <Grid Grid.Row="1">
-                <GroupBox
-                    Header="Прочее"
-                    Style="{DynamicResource MaterialDesignGroupBox}"
-                    Margin="16"
-                    materialDesign:ColorZoneAssist.Mode="Custom"
-                    materialDesign:ColorZoneAssist.Background="Black"
-                    materialDesign:ColorZoneAssist.Foreground="White">
-                    <StackPanel>
-                        <TextBlock Text="Контакты"/>
-                        <TextBlock Text="Группа в вк"/>
-                        <TextBlock Text="Инста"/>
-                        <TextBlock Text="Ютуб"/>
-                    </StackPanel>
-                </GroupBox>
-            </Grid>
+            <Image Grid.Row="1" Width="250" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Diplom;component/Resources/logo1.jpg"></Image>
         </Grid>
     </Grid>
 </Window>

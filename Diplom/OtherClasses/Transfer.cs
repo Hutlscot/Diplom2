@@ -10,6 +10,11 @@
         {
             switch (namePage)
             {
+                case "Главная":
+                {
+                    ManagerFrame.Frame.Navigate(new MainPage());
+                    break;
+                }
                 case "Студенты":
                 {
                     ManagerFrame.Frame.Navigate(new PageStudents());
