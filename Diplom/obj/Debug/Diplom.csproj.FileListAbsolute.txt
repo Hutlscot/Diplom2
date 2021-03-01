@@ -208,3 +208,16 @@ C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddStatus.g.cs
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\AddStatus.baml
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\MainPage.g.cs
 C:\Users\Poni4\source\repos\Diplom\Diplom\obj\Debug\View\MainPage.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\EntityFramework.dll
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\EntityFramework.xml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddCompetencies.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddStatus.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\MainPage.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\WindowAddStatusStudent.g.cs
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddCompetencies.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddStatus.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\MainPage.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\WindowAddStatusStudent.baml

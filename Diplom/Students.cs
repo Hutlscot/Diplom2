@@ -32,6 +32,7 @@ namespace Diplom
         public string POO { get; set; }
         public int IdDirection { get; set; }
 
+        //получить компетенции строкой
         public string competentciesRating
         {
             get
@@ -53,6 +54,8 @@ namespace Diplom
                 return result;
             }
         }
+
+        //получить мероприятия списком
         public ObservableCollection<Events> Events
         {
             get
@@ -68,6 +71,26 @@ namespace Diplom
                 return events;
             }
         }
+
+        //получить мероприятия строкой
+        //для экспорта
+        public string EventsToString
+        {
+            get
+            {
+                var events = "";
+                if (Rating.Any())
+                {
+                    foreach (var rat in Rating)
+                    {
+                        events+= $"{rat.Events.Name} {rat.Events.Description}\n";
+                    }
+                }
+                return events;
+            }
+        }
+
+        //получить сумму балолов рейтинга
         public int OverAllRating
         {
             get

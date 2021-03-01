@@ -54,6 +54,24 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <!--таблица для экспорта-->
+        <DataGrid AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Visibility="Collapsed"
+                  Name="grid_Extort" Margin="0,207,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" />
+                <DataGridTextColumn Header="ПОО" Binding="{Binding POO}" />
+                <DataGridTextColumn Header="№ Группы" Binding="{Binding Group}" />
+                <DataGridTextColumn Header="Общий рейтинг" Binding="{Binding OverAllRating}" />
+                <DataGridTextColumn Header="Направление" Binding="{Binding Directions.Name}" />
+                <DataGridTextColumn Header="Компетенции" Binding="{Binding competentciesRating}"/>
+                <DataGridTextColumn Header="Мероприятия" Binding="{Binding EventsToString}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <Grid Grid.Row="1">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
                 <TextBlock>Найти:</TextBlock>
@@ -63,7 +81,7 @@
                          materialDesign:HintAssist.Hint="Введите фамилию"
                          materialDesign:TextFieldAssist.HasClearButton="True" TextChanged="TextBoxBase_OnTextChanged"/>
             </StackPanel>
-            <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" Command="{Binding ImportRating}"/>
+            <Button HorizontalAlignment="Center" Content="Выгрузка" Margin="10" Click="Button_Click"/>
             <Button HorizontalAlignment="Right" Content="Начислить" Margin="20" Command="{Binding AddRating}"/>
         </Grid>
     </Grid>

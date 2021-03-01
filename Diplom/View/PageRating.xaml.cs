@@ -35,5 +35,10 @@ namespace Diplom.View
             var textSearch = ((TextBox) sender).Text;
             grid.ItemsSource = students.Where(x => x.LastName.ToLower().Contains(textSearch.ToLower())).ToList();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            grid_Extort.ItemsSource = grid.ItemsSource;
+        }
     }
 }
