@@ -4,12 +4,6 @@
         <name>MaterialDesignThemes.Wpf</name>
     </assembly>
     <members>
-        <member name="T:MaterialDesignThemes.Wpf.AdornerAssist">
-            <summary>
-            this is a simple utility to add and remove a single adorner to an element since there is no built-in way to do that in xaml.
-            <a href="https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/adorners-overview">see here</a>
-            </summary>
-        </member>
         <member name="T:MaterialDesignThemes.Wpf.ButtonAssist">
             <summary>
             Helper properties for working with for make round corner.
@@ -47,7 +41,7 @@
         </member>
         <member name="T:MaterialDesignThemes.Wpf.ColorZone">
             <summary>
-            User a colour zone to easily switch the background and foreground colours, from selected Material Design palette or custom ones.
+            User a colour zone to easily switch the background and foreground colours, whilst still remaining within the selected Material Design palette.
             </summary>
         </member>
         <member name="F:MaterialDesignThemes.Wpf.ComboBoxAssist.ClassicModeProperty">
@@ -447,11 +441,6 @@
             Client code cannot set this directly, this is internally managed.  To end the dialog session use <see cref="M:MaterialDesignThemes.Wpf.DialogSession.Close"/>.
             </remarks>
         </member>
-        <member name="P:MaterialDesignThemes.Wpf.DialogSession.CloseParameter">
-            <summary>
-            The parameter passed to the <see cref="F:MaterialDesignThemes.Wpf.DialogHost.CloseDialogCommand" /> and return by <see cref="M:MaterialDesignThemes.Wpf.DialogHost.Show(System.Object)"/>
-            </summary>
-        </member>
         <member name="P:MaterialDesignThemes.Wpf.DialogSession.Content">
             <summary>
             Gets the <see cref="P:MaterialDesignThemes.Wpf.DialogHost.DialogContent"/> which is currently displayed, so this could be a view model or a UI element.
@@ -540,21 +529,6 @@
             Sets the color for the text of a focused control.
             </summary>
         </member>
-        <member name="F:MaterialDesignThemes.Wpf.HintAssist.BackgroundProperty">
-            <summary>
-            The color for the background of a focused control.
-            </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.HintAssist.GetBackground(System.Windows.DependencyObject)">
-            <summary>
-            Gets the color for the background of a focused control.
-            </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.HintAssist.SetBackground(System.Windows.DependencyObject,System.Windows.Media.Brush)">
-            <summary>
-            Sets the color for the background of a focused control.
-            </summary>
-        </member>
         <member name="F:MaterialDesignThemes.Wpf.HintAssist.HelperTextProperty">
             <summary>
             The HelperText property
@@ -581,8 +555,8 @@
             Displays an icon image/path, according to the specified <see cref="P:MaterialDesignThemes.Wpf.Icon.Type"/> name.
             </summary>
             <remarks>
-            All icons sourced from Material Design Icons Font - https://materialdesignicons.com/ - in accordance of 
-            https://github.com/Templarian/MaterialDesign/blob/master/LICENSE.
+            All icons sourced from Material Design Icons Font - <see cref="!:https://materialdesignicons.com/"/> - in accordance of 
+            <see cref="!:https://github.com/Templarian/MaterialDesign/blob/master/license.txt"/>.
             </remarks>
         </member>
         <member name="P:MaterialDesignThemes.Wpf.Icon.Type">
@@ -595,8 +569,8 @@
             List of available icons for use with <see cref="T:MaterialDesignThemes.Wpf.Icon"/>.
             </summary>
             <remarks>
-            All icons sourced from Material Design Icons Font - https://materialdesignicons.com/ - in accordance of 
-            https://github.com/Templarian/MaterialDesign/blob/master/LICENSE.
+            All icons sourced from Material Design Icons Font - <see cref="!:https://materialdesignicons.com/"/> - in accordance of 
+            <see cref="!:https://github.com/Templarian/MaterialDesign/blob/master/license.txt"/>.
             </remarks>
         </member>
         <member name="T:MaterialDesignThemes.Wpf.IHintProxy">
@@ -721,8 +695,8 @@
             List of available icons for use with <see cref="T:MaterialDesignThemes.Wpf.PackIcon" />.
             </summary>
             <remarks>
-            All icons sourced from Material Design Icons Font - https://materialdesignicons.com/ - in accordance of 
-            https://github.com/Templarian/MaterialDesign/blob/master/LICENSE.
+            All icons sourced from Material Design Icons Font - <see cref="!:https://materialdesignicons.com/"/> - in accordance of 
+            <see cref="!:https://github.com/Templarian/MaterialDesign/blob/master/license.txt"/>.
             </remarks>
         </member>
         <member name="T:MaterialDesignThemes.Wpf.Palette">
@@ -1185,15 +1159,6 @@
             Add / Remove ActionClickEvent handler 
             </summary>
         </member>
-        <member name="F:MaterialDesignThemes.Wpf.SnackbarMessage.InlineActionButtonMaxHeightProperty">
-            <summary>
-            Maximum total height of snackbar for the action button to be inlined.
-            <para>
-            Default value (<c>55</c>) is between single line message (<c>48</c>) and two lined snackbar-message (<c>66</c>)
-            because tolerance is required (see <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/issues/1812">issue</a>)
-            </para>
-            </summary>
-        </member>
         <member name="P:MaterialDesignThemes.Wpf.SnackbarMessageQueue.IgnoreDuplicate">
             <summary>
             Gets or sets a value that indicates whether this message queue displays messages without discarding duplicates. 
@@ -1234,13 +1199,6 @@
             <summary>
             Still display this message even if it is a duplicate.
             </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.SnackbarMessageQueueItem.IsDuplicate(MaterialDesignThemes.Wpf.SnackbarMessageQueueItem)">
-            <summary>
-            Checks if given item is a duplicate to this
-            </summary>
-            <param name="item">Item to check for duplicate</param>
-            <returns><c>true</c> if given item is a duplicate to this, <c>false</c> otherwise</returns>
         </member>
         <member name="T:MaterialDesignThemes.Wpf.TextFieldAssist">
             <summary>
@@ -1285,27 +1243,9 @@
             <param name="element"></param>
             <returns></returns>
         </member>
-        <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.UnderlineBrushProperty">
-            <summary>
-            The attached WPF property for getting or setting the <see cref="T:System.Windows.Media.Brush"/> value for an underline decoration.
-            </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(System.Windows.DependencyObject,System.Windows.Media.Brush)">
-            <summary>
-            Sets the <see cref="T:System.Windows.Media.Brush"/> used for underline decoration.
-            </summary>
-            <param name="element"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.TextFieldAssist.GetUnderlineBrush(System.Windows.DependencyObject)">
-            <summary>
-            Gets the <see cref="T:System.Windows.Media.Brush"/> used for underline decoration.
-            </summary>
-            <param name="element"></param>
-        </member>
         <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.HasFilledTextFieldProperty">
             <summary>
-            Controls the visbility of the text field box.
+            Controls the visibility of the filled text field.
             </summary>
         </member>
         <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.HasOutlinedTextFieldProperty">
@@ -1331,6 +1271,21 @@
         <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.RippleOnFocusEnabledProperty">
             <summary>
             Enables a ripple effect on focusing the text box.
+            </summary>
+        </member>
+        <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.UnderlineBrushProperty">
+            <summary>
+            The color for highlighting effects on the border of a text box.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(System.Windows.DependencyObject,System.Windows.Media.Brush)">
+            <summary>
+            Sets the color for highlighting effects on the border of a text box.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.TextFieldAssist.GetUnderlineBrush(System.Windows.DependencyObject)">
+            <summary>
+            Gets the color for highlighting effects on the border of a text box.
             </summary>
         </member>
         <member name="F:MaterialDesignThemes.Wpf.TextFieldAssist.IncludeSpellingSuggestionsProperty">
@@ -1361,11 +1316,6 @@
             </summary>
             <param name="dependencyObject">The dependency object.</param>
             <param name="dependencyPropertyChangedEventArgs">The dependency property changed event args.</param>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.TimePicker.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-                Called when this element gets focus.
-            </summary>
         </member>
         <member name="M:MaterialDesignThemes.Wpf.TimePicker.OnIsDropDownOpenChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary> 

@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Panel.ZIndex="999" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="{Binding ElementName=frame, Path=Content.Title}"/>
         <Frame Name="frame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1"></Frame>
-        <materialDesign:ColorZone Mode="Custom" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Height="51">
+        <materialDesign:ColorZone Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Height="51" Background="White">
             <Grid>
                 <materialDesign:PopupBox Name="btm_back" PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right">
                     <materialDesign:PopupBox.ToggleContent>

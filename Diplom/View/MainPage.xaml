@@ -13,10 +13,7 @@
         <GroupBox
             Header="О нас"
             Style="{DynamicResource MaterialDesignGroupBox}"
-            Margin="16"
-            materialDesign:ColorZoneAssist.Mode="Custom"
-            materialDesign:ColorZoneAssist.Background="{StaticResource PrimaryHueMidBrush}"
-            materialDesign:ColorZoneAssist.Foreground="White">
+            Margin="16">
             <StackPanel>
                 <TextBlock Text="Контакты"/>
                 <TextBlock Text="Группа в вк"/>

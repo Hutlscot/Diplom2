@@ -12,9 +12,7 @@
     
     <Grid>
         <GroupBox Margin="30" HorizontalAlignment="Center" Header="Данные для начисления" Width="300"
-                  materialDesign:ColorZoneAssist.Mode="Custom"
-                  materialDesign:ColorZoneAssist.Background="{StaticResource PrimaryHueMidBrush}"
-                  materialDesign:ColorZoneAssist.Foreground="White">
+                 >
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <TextBlock Text="{Binding SelectedStudent.LastName}"></TextBlock>
                 <TextBlock Text="{Binding SelectedStudent.Name}"></TextBlock>

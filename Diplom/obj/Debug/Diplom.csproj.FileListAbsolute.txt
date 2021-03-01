@@ -221,3 +221,4 @@ C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddCompetencie
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\AddStatus.baml
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\MainPage.baml
 C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\obj\Debug\View\WindowAddStatusStudent.baml
+C:\Users\VorontsovRD\Desktop\Diplom\Diplom2\Diplom\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
