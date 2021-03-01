@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Diplom"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Виктория Петровская (с)" Height="550" Width="1000" ResizeMode="NoResize" FontSize="15">
+        Title="Виктория Петровская (с)" Height="550" Width="1000" Style="{StaticResource Wind}">
     <Window.DataContext>
         <local:Statuses/>
     </Window.DataContext>
@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Panel.ZIndex="999" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="{Binding ElementName=frame, Path=Content.Title}"/>
         <Frame Name="frame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1"></Frame>
-        <materialDesign:ColorZone Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Height="51" Background="White">
+        <materialDesign:ColorZone Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Height="51" Mode="PrimaryLight">
             <Grid>
                 <materialDesign:PopupBox Name="btm_back" PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right">
                     <materialDesign:PopupBox.ToggleContent>

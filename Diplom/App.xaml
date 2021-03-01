@@ -11,6 +11,19 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Window" x:Key="Wind">
+                <Setter Property="Background" Value="{StaticResource PrimaryHueLightBrush}"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="ResizeMode" Value="NoResize"></Setter>
+            </Style>
+
+            <Style TargetType="Page" x:Key="Page">
+                <Setter Property="Background" Value="{StaticResource PrimaryHueLightBrush}"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
+    
 </Application>
