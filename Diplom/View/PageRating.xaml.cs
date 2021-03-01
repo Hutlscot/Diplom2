@@ -12,7 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Diplom.OtherClasses;
+
 using TextBox = System.Windows.Controls.TextBox;
+
+
 
 namespace Diplom.View
 {
@@ -23,6 +27,7 @@ namespace Diplom.View
     {
         private readonly DataContext dataContext;
         private readonly List<Students> students;
+
         public PageRating()
         {
             InitializeComponent();
@@ -34,11 +39,12 @@ namespace Diplom.View
         {
             var textSearch = ((TextBox) sender).Text;
             grid.ItemsSource = students.Where(x => x.LastName.ToLower().Contains(textSearch.ToLower())).ToList();
+            grid_Extort.ItemsSource = grid.ItemsSource;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            grid_Extort.ItemsSource = grid.ItemsSource;
+            ExportToExcel.ExportDataGridToExcel(grid_Extort);
         }
     }
 }

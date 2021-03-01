@@ -7,7 +7,7 @@
       xmlns:diplom="clr-namespace:Diplom"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Руководители" Background="White" FontSize="15">
+      Title="Руководители" Style="{StaticResource Page}">
     <Page.DataContext>
         <diplom:ManagersVM></diplom:ManagersVM>
     </Page.DataContext>

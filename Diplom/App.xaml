@@ -13,13 +13,13 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="Window" x:Key="Wind">
-                <Setter Property="Background" Value="{StaticResource PrimaryHueLightBrush}"></Setter>
+                <Setter Property="Background" Value="#f3e5f5"></Setter>
                 <Setter Property="FontSize" Value="15"></Setter>
                 <Setter Property="ResizeMode" Value="NoResize"></Setter>
             </Style>
 
             <Style TargetType="Page" x:Key="Page">
-                <Setter Property="Background" Value="{StaticResource PrimaryHueLightBrush}"></Setter>
+                <Setter Property="Background" Value="#f3e5f5"></Setter>
                 <Setter Property="FontSize" Value="15"></Setter>
             </Style>
 

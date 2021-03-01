@@ -9,7 +9,7 @@
       xmlns:diplom="clr-namespace:Diplom"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Добавление мероприятия" Background="White" FontSize="15" Name="page">
+      Title="Добавление мероприятия" Style="{StaticResource Page}" Name="page">
     <Page.DataContext>
         <diplom:AddEventVM />
     </Page.DataContext>

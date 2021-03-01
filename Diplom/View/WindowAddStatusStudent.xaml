@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diplom.View"
         mc:Ignorable="d"
-        Title="Добавление статусов студентов" Height="400" Width="400" FontSize="15">
+        Title="Добавление статусов студентов" Height="400" Width="400" Style="{StaticResource Wind}">
     <Grid>
         <materialDesign:DialogHost Margin="30"
  
