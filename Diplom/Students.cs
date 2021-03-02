@@ -7,14 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.ObjectModel;
-using System.Linq;
-
 namespace Diplom
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Collections.ObjectModel;
+    using System.Linq;
+
     public partial class Students
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -45,12 +44,14 @@ namespace Diplom
                     var count = 0;
                     foreach (var eventss in competency.Events)
                     {
-                        count += eventss.Rating.Where(x => x.IdStudent == Id).Select(x=>x.Count).SingleOrDefault();
+                        count += eventss.Rating.Where(x => x.IdStudent == Id).Select(x => x.Count).SingleOrDefault();
                     }
-                    if(count!=0)
-                        result += $"{competency.Name}\n";
+                    if (count != 0)
+                        result += $"{competency.Name},\n";
                 }
 
+                if (result == "")
+                    result = "нет компетенций";
                 return result;
             }
         }
@@ -83,9 +84,12 @@ namespace Diplom
                 {
                     foreach (var rat in Rating)
                     {
-                        events+= $"{rat.Events.Name} {rat.Events.Description}\n";
+                        events += $"{rat.Events.Name} {rat.Events.Description},\n";
                     }
                 }
+
+                if (events == "")
+                    events = "нет мероприятий";
                 return events;
             }
         }

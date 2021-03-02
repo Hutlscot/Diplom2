@@ -42,6 +42,7 @@
     <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Contacts" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IsMainManager" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Rating">
     <Key>

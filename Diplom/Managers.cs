@@ -26,6 +26,8 @@ namespace Diplom
         public string MiddleName { get; set; }
         public string Contacts { get; set; }
         public bool IsMainManager { get; set; }
+        public string Description { get; set; }
+
         public string InfoMainmanager
         {
             get

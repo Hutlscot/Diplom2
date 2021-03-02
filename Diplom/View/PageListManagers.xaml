@@ -18,7 +18,7 @@
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Описание" Binding="{Binding Descriprion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Контакты" Binding="{Binding Contacts}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
