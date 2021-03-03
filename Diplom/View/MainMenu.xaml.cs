@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace Diplom
 {
+    using System.Diagnostics;
     using System.Net;
 
     /// <summary>
@@ -27,6 +28,16 @@ namespace Diplom
             InitializeComponent();
             ManagerFrame.Frame = frame;
             Transfer.GoTo("Главная");
+            CloseProcess();
+            
+        }
+        private static void CloseProcess()
+        {
+            var list = Process.GetProcessesByName("EXCEL");
+            foreach (var proc in list)
+            {
+                proc.Kill();
+            }
         }
 
         //переходы по меню

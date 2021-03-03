@@ -33,7 +33,7 @@ namespace Diplom.OtherClasses
                     for (var j = 0; j < grid.Items.Count; j++)
                     {
                         var b = grid.Columns[i].GetCellContent(grid.Items[j]) as TextBlock;
-                        var myRange = (Excel.Range) workSheet.Cells[j + 2, i + 1];
+                        var myRange = (Excel.Range)workSheet.Cells[j + 2, i + 1];
                         myRange.HorizontalAlignment = Excel.Constants.xlLeft;
                         myRange.VerticalAlignment = Excel.Constants.xlTop;
                         myRange.Value2 = b.Text;
@@ -46,19 +46,13 @@ namespace Diplom.OtherClasses
                 Mes.SucMes("Сохранено, проверьте файл в папке 'Документы'");
             }
 
+            catch
+            {
+                Mes.ErrorMes("Не удалось выгрузить, перезагрузитесь");
+            }
             finally
             {
 
-            }
-        }
-
-        private static void CloseProcess()
-        {
-            Process[] List;
-            List = Process.GetProcessesByName("EXCEL");
-            foreach (Process proc in List)
-            {
-                proc.Kill();
             }
         }
     }
