@@ -22,7 +22,6 @@ namespace Diplom
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Events> Events { get; set; }

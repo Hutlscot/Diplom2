@@ -19,6 +19,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="DatabaseModel.Managers">
+        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rating">
+      <EntityTypeMapping TypeName="DatabaseModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="DatabaseModel.Students">
         <MappingFragment StoreEntitySet="Students">
@@ -36,7 +59,6 @@
     <EntitySetMapping Name="Сompetencies">
       <EntityTypeMapping TypeName="DatabaseModel.Сompetencies">
         <MappingFragment StoreEntitySet="Сompetencies">
-          <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -50,29 +72,6 @@
         <ScalarProperty Name="Id" ColumnName="IdCompetencies" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="Rating">
-      <EntityTypeMapping TypeName="DatabaseModel.Rating">
-        <MappingFragment StoreEntitySet="Rating">
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
-          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Managers">
-      <EntityTypeMapping TypeName="DatabaseModel.Managers">
-        <MappingFragment StoreEntitySet="Managers">
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
-          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
-          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="GroupManagers" TypeName="DatabaseModel.GroupManagers" StoreEntitySet="GroupManagers">
       <EndProperty Name="Managers">
         <ScalarProperty Name="Id" ColumnName="IdManager" />

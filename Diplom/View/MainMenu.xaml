@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Diplom"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Виктория Петровская (с)" Height="550" Width="1000" Style="{StaticResource Wind}" Name="win">
+        Title="Виктория Петровская (с)" Height="600" Width="1111" Style="{StaticResource Wind}" Name="win">
     <Window.DataContext>
         <local:Statuses/>
     </Window.DataContext>
@@ -41,13 +41,13 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0">
-                <ListBox ItemsSource="{Binding StatusCollection}">
+                <ListBox ItemsSource="{Binding MenuItems}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem x:Name="ListViewItemMenu" Margin="-8" FontSize="15">
                                 <Grid Width="280" Height="46">
                                     <TextBlock MouseDown="TextBlock_MouseDown" Padding="25 14"
-                                               Text="{Binding Path=Title}" />
+                                               Text="{Binding Path=Name}" />
                                 </Grid>
                             </ListBoxItem>
                         </DataTemplate>

@@ -29,7 +29,6 @@ namespace Diplom
             ManagerFrame.Frame = frame;
             Transfer.GoTo("Главная");
             CloseProcess();
-            
         }
         private static void CloseProcess()
         {

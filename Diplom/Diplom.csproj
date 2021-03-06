@@ -92,9 +92,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ItemPOO.cs" />
+    <Compile Include="Model\ManagersPartial.cs" />
+    <Compile Include="Model\OtherData.cs" />
+    <Compile Include="Model\StudentsPartial.cs" />
     <Compile Include="OtherClasses\ErrorsManager.cs" />
     <Compile Include="OtherClasses\ExportToExcel.cs" />
-    <Compile Include="OtherClasses\PartialManager.cs" />
     <Compile Include="View\AddCompetencies.xaml.cs">
       <DependentUpon>AddCompetencies.xaml</DependentUpon>
     </Compile>

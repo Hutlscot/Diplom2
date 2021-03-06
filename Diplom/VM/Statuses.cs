@@ -5,23 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using Diplom.Model;
 
 namespace Diplom
 {
     public class Statuses
     {
         //список элементов меню
-        public ObservableCollection<StatusStudent> StatusCollection { get; set; }
+        public ObservableCollection<Item> MenuItems { get; set; }
 
         public Statuses()
         {
-            StatusCollection = new ObservableCollection<StatusStudent>
-            {
-                new StatusStudent("Главная",10),
-                new StatusStudent("Студенты",10),
-                new StatusStudent("Мероприятия", 10),
-                new StatusStudent("Руководители", 10)
-            };
+            MenuItems = OtherData.loadMenuItems();
 
         }
 

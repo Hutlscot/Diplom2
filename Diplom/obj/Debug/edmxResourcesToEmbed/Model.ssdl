@@ -71,8 +71,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <Association Name="FK_Events_ToTable">
     <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
@@ -115,7 +114,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rating_ToTable">
-    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Students">
@@ -127,7 +128,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rating_ToTable_1">
-    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Events">

@@ -1,24 +1,59 @@
 ﻿<Page x:Class="Diplom.View.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Diplom.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Главная" Style="{StaticResource Page}">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
         <GroupBox
             Header="О нас"
             Style="{DynamicResource MaterialDesignGroupBox}"
             Margin="16">
             <StackPanel>
-                <TextBlock Text="Контакты"/>
-                <TextBlock Text="Группа в вк"/>
-                <TextBlock Text="Инста"/>
-                <TextBlock Text="Ютуб"/>
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/molodej_spo">Наша группа в вк: https://vk.com/molodej_spo</Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://www.instagram.com/molodej_spo_tomsk">Наш инстаграм: https://www.instagram.com/molodej_spo_tomsk</Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://www.youtube.com/channel/UCA0Ll2OUseS8iCUCyggbBWA">Наш канал на Youtube: https://www.youtube.com/channel/UCA0Ll2OUseS8iCUCyggbBWA</Hyperlink>
+                </TextBlock>
+                <TextBlock Text="Руководитель Молодежного центра СПО" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/steini">https://vk.com/steini</Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="Руководитель ФП Творчество" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/valiullinilya">https://vk.com/valiullinilya</Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="Руководитель ФП Волонтерская Лига" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/emelyanova_enzhi">https://vk.com/emelyanova_enzhi</Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="Руководитель ФП Патриотический центр" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/komandir_tro_rso">https://vk.com/komandir_tro_rso</Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="Руководитель ФП Студенческое самоуправление"/>
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://vk.com/almymrikova">https://vk.com/almymrikova</Hyperlink>
+                </TextBlock>
             </StackPanel>
         </GroupBox>
     </Grid>

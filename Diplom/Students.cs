@@ -11,9 +11,7 @@ namespace Diplom
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
+    
     public partial class Students
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,87 +28,7 @@ namespace Diplom
         public string Cours { get; set; }
         public string POO { get; set; }
         public int IdDirection { get; set; }
-
-        //получить компетенции строкой
-        public string competentciesRating
-        {
-            get
-            {
-                var result = "";
-                var dataContext = new DataContext();
-                var listCompetencies = dataContext.Сompetencies.ToList();
-                foreach (var competency in listCompetencies)
-                {
-                    var count = 0;
-                    foreach (var eventss in competency.Events)
-                    {
-                        count += eventss.Rating.Where(x => x.IdStudent == Id).Select(x => x.Count).SingleOrDefault();
-                    }
-                    if (count != 0)
-                        result += $"{competency.Name},\n";
-                }
-
-                if (result == "")
-                    result = "нет компетенций";
-                return result;
-            }
-        }
-
-        //получить мероприятия списком
-        public ObservableCollection<Events> Events
-        {
-            get
-            {
-                var events = new ObservableCollection<Events>();
-                if (Rating.Any())
-                {
-                    foreach (var rat in Rating)
-                    {
-                        events.Add(rat.Events);
-                    }
-                }
-                return events;
-            }
-        }
-
-        //получить мероприятия строкой
-        //для экспорта
-        public string EventsToString
-        {
-            get
-            {
-                var events = "";
-                if (Rating.Any())
-                {
-                    foreach (var rat in Rating)
-                    {
-                        events += $"{rat.Events.Name} {rat.Events.Description},\n";
-                    }
-                }
-
-                if (events == "")
-                    events = "нет мероприятий";
-                return events;
-            }
-        }
-
-        //получить сумму балолов рейтинга
-        public int OverAllRating
-        {
-            get
-            {
-                int sum = 0;
-                if (Rating.Any())
-                {
-                    foreach (var rating in Rating)
-                    {
-                        sum += rating.Count;
-                    }
-                }
-                return sum;
-            }
-        }
-
+    
         public virtual Directions Directions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rating> Rating { get; set; }

@@ -27,15 +27,7 @@ namespace Diplom
         public string Contacts { get; set; }
         public bool IsMainManager { get; set; }
         public string Description { get; set; }
-
-        public string InfoMainmanager
-        {
-            get
-            {
-                return "Главный руководитель: " + LastName + " " + Name + " \nКонтакты: " + Contacts;
-            }
-        }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Directions> Directions { get; set; }
     }
