@@ -35,25 +35,25 @@
                     <Hyperlink NavigateUri="https://vk.com/steini">https://vk.com/steini</Hyperlink>
                 </TextBlock>
 
-                <TextBlock Text="Руководитель ФП Творчество" />
+                <!--<TextBlock Text="Руководитель ФП Творчество" />
                 <TextBlock>
                     <Hyperlink NavigateUri="https://vk.com/valiullinilya">https://vk.com/valiullinilya</Hyperlink>
-                </TextBlock>
+                </TextBlock>-->
 
-                <TextBlock Text="Руководитель ФП Волонтерская Лига" />
+                <!--<TextBlock Text="Руководитель ФП Волонтерская Лига" />
                 <TextBlock>
                     <Hyperlink NavigateUri="https://vk.com/emelyanova_enzhi">https://vk.com/emelyanova_enzhi</Hyperlink>
-                </TextBlock>
+                </TextBlock>-->
 
-                <TextBlock Text="Руководитель ФП Патриотический центр" />
+                <!--<TextBlock Text="Руководитель ФП Патриотический центр" />
                 <TextBlock>
                     <Hyperlink NavigateUri="https://vk.com/komandir_tro_rso">https://vk.com/komandir_tro_rso</Hyperlink>
-                </TextBlock>
+                </TextBlock>-->
 
-                <TextBlock Text="Руководитель ФП Студенческое самоуправление"/>
+                <!--<TextBlock Text="Руководитель ФП Студенческое самоуправление"/>
                 <TextBlock>
                     <Hyperlink NavigateUri="https://vk.com/almymrikova">https://vk.com/almymrikova</Hyperlink>
-                </TextBlock>
+                </TextBlock>-->
             </StackPanel>
         </GroupBox>
     </Grid>
