@@ -30,22 +30,40 @@ namespace Diplom
             }
         }
 
+        ////получить мероприятия списком
+        //public ObservableCollection<Events> Events
+        //{
+        //    get
+        //    {
+        //        var events = new ObservableCollection<Events>();
+        //        if (Rating.Any())
+        //        {
+        //            foreach (var rat in Rating)
+        //            {
+        //                events.Add(rat.Events);
+        //            }
+        //        }
+        //        return events;
+        //    }
+        //}
+
         //получить мероприятия списком
-        public ObservableCollection<Events> Events
+        public string Events
         {
             get
             {
-                var events = new ObservableCollection<Events>();
+                var s = "";
                 if (Rating.Any())
                 {
                     foreach (var rat in Rating)
                     {
-                        events.Add(rat.Events);
+                        s+= rat.Events.Name +" "+ rat.Events.Description +" "+ rat.Position+"\n\n";
                     }
                 }
-                return events;
+                return s;
             }
         }
+
 
         //получить мероприятия строкой
         //для экспорта

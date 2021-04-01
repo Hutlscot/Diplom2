@@ -52,6 +52,7 @@
     <Property Name="IdStudent" Type="int" Nullable="false" />
     <Property Name="IdEvent" Type="int" Nullable="false" />
     <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Students">
     <Key>

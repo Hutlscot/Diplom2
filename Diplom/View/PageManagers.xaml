@@ -7,7 +7,7 @@
       xmlns:diplom="clr-namespace:Diplom"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Руководители" Style="{StaticResource Page}">
+      Title="Органы студенческого совета" Style="{StaticResource Page}">
     <Page.DataContext>
         <diplom:ManagersVM></diplom:ManagersVM>
     </Page.DataContext>

@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\EventPartial.cs" />
     <Compile Include="Model\ItemPOO.cs" />
     <Compile Include="Model\ManagersPartial.cs" />
     <Compile Include="Model\OtherData.cs" />
@@ -112,6 +113,9 @@
     </Compile>
     <Compile Include="View\PageAddRating.xaml.cs">
       <DependentUpon>PageAddRating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageChangeStudent.xaml.cs">
+      <DependentUpon>PageChangeStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageListManagers.xaml.cs">
       <DependentUpon>PageListManagers.xaml</DependentUpon>
@@ -196,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageAddStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageChangeStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

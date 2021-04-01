@@ -4,7 +4,6 @@
     <EntitySet Name="Directions" EntityType="DatabaseModel.Directions" />
     <EntitySet Name="Events" EntityType="DatabaseModel.Events" />
     <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
-    <EntitySet Name="Rating" EntityType="DatabaseModel.Rating" />
     <EntitySet Name="Students" EntityType="DatabaseModel.Students" />
     <EntitySet Name="Сompetencies" EntityType="DatabaseModel.Сompetencies" />
     <AssociationSet Name="FK_Events_ToTable" Association="DatabaseModel.FK_Events_ToTable">
@@ -15,14 +14,6 @@
       <End Role="Directions" EntitySet="Directions" />
       <End Role="Students" EntitySet="Students" />
     </AssociationSet>
-    <AssociationSet Name="FK_Rating_ToTable_1" Association="DatabaseModel.FK_Rating_ToTable_1">
-      <End Role="Events" EntitySet="Events" />
-      <End Role="Rating" EntitySet="Rating" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rating_ToTable" Association="DatabaseModel.FK_Rating_ToTable">
-      <End Role="Students" EntitySet="Students" />
-      <End Role="Rating" EntitySet="Rating" />
-    </AssociationSet>
     <AssociationSet Name="GroupCompetencies" Association="DatabaseModel.GroupCompetencies">
       <End Role="Сompetencies" EntitySet="Сompetencies" />
       <End Role="Events" EntitySet="Events" />
@@ -30,6 +21,15 @@
     <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
       <End Role="Directions" EntitySet="Directions" />
       <End Role="Managers" EntitySet="Managers" />
+    </AssociationSet>
+    <EntitySet Name="Rating" EntityType="DatabaseModel.Rating" />
+    <AssociationSet Name="FK_Rating_ToTable_1" Association="DatabaseModel.FK_Rating_ToTable_1">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Rating" EntitySet="Rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rating_ToTable" Association="DatabaseModel.FK_Rating_ToTable">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Directions">
@@ -51,8 +51,8 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IdDirection" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Directions" Relationship="DatabaseModel.FK_Events_ToTable" FromRole="Events" ToRole="Directions" />
-    <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Events" ToRole="Rating" />
     <NavigationProperty Name="Сompetencies" Relationship="DatabaseModel.GroupCompetencies" FromRole="Events" ToRole="Сompetencies" />
+    <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Events" ToRole="Rating" />
   </EntityType>
   <EntityType Name="Managers">
     <Key>
@@ -66,17 +66,6 @@
     <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
-  </EntityType>
-  <EntityType Name="Rating">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdStudent" Type="Int32" Nullable="false" />
-    <Property Name="IdEvent" Type="Int32" Nullable="false" />
-    <Property Name="Count" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Events" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Rating" ToRole="Events" />
-    <NavigationProperty Name="Students" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Rating" ToRole="Students" />
   </EntityType>
   <EntityType Name="Students">
     <Key>
@@ -125,6 +114,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="GroupCompetencies">
+    <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="*" />
+    <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
+  </Association>
+  <Association Name="GroupManagers">
+    <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
+    <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdStudent" Type="Int32" Nullable="false" />
+    <Property Name="IdEvent" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Events" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Rating" ToRole="Events" />
+    <NavigationProperty Name="Students" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Rating" ToRole="Students" />
+  </EntityType>
   <Association Name="FK_Rating_ToTable_1">
     <End Type="DatabaseModel.Events" Role="Events" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -152,13 +161,5 @@
         <PropertyRef Name="IdStudent" />
       </Dependent>
     </ReferentialConstraint>
-  </Association>
-  <Association Name="GroupCompetencies">
-    <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="*" />
-    <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
-  </Association>
-  <Association Name="GroupManagers">
-    <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
-    <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
   </Association>
 </Schema>

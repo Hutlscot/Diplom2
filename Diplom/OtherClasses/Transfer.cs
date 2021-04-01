@@ -25,7 +25,7 @@
                     ManagerFrame.Frame.Navigate(new PageEvents());
                     break;
                 }
-                case "Руководители":
+                case "Органы студенческого совета":
                 {
                     ManagerFrame.Frame.Navigate(new PageManagers());
                     break;

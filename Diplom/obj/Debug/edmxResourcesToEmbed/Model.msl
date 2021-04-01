@@ -32,16 +32,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Rating">
-      <EntityTypeMapping TypeName="DatabaseModel.Rating">
-        <MappingFragment StoreEntitySet="Rating">
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
-          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="DatabaseModel.Students">
         <MappingFragment StoreEntitySet="Students">
@@ -80,5 +70,16 @@
         <ScalarProperty Name="Id" ColumnName="IdDirection" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Rating">
+      <EntityTypeMapping TypeName="DatabaseModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

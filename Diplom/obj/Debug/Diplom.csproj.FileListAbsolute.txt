@@ -287,3 +287,5 @@ D:\vik\Diplom\obj\Debug\Diplom.csproj.CoreCompileInputs.cache
 D:\vik\Diplom\obj\Debug\Diplom.csproj.CopyComplete
 D:\vik\Diplom\obj\Debug\Diplom.exe
 D:\vik\Diplom\obj\Debug\Diplom.pdb
+D:\vik\Diplom\obj\Debug\View\PageChangeStudent.g.cs
+D:\vik\Diplom\obj\Debug\View\PageChangeStudent.baml

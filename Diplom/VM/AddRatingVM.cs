@@ -64,6 +64,7 @@ namespace Diplom.VM
                         AddedRating.IdStudent = SelectedStudent.Id;
                         AddedRating.IdEvent = selectedEvent.Id;
                         AddedRating.Count = selectedStatus.Count;
+                        AddedRating.Position = selectedStatus.Title;
                         var dataContext = new DataContext();
                         dataContext.Rating.Add(AddedRating);
                         dataContext.SaveChanges();

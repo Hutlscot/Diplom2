@@ -19,8 +19,8 @@ namespace Diplom.VM
         public Directions selectedDirection { get; set; }
 
         //список POO
-        public ObservableCollection<Item> listPOO { get; set; }
-        public Item selectedPOO { get; set; }
+        //public ObservableCollection<Item> listPOO { get; set; }
+        //public Item selectedPOO { get; set; }
 
         public AddStudentVM()
         {
@@ -28,7 +28,7 @@ namespace Diplom.VM
             directions = dataContext.Directions.ToList();
             student = new Students();
             //загрузить POO
-            listPOO = OtherData.LoadPOO();
+            //listPOO = OtherData.LoadPOO();
         }
 
         private RelayCommand addStudent;
@@ -41,13 +41,13 @@ namespace Diplom.VM
                     {
                         try
                         {
-                            if (selectedDirection == null || selectedPOO == null)
+                            if (selectedDirection == null /*|| selectedPOO == null*/)
                             {
                                 Mes.ErrorMes("Заполните все данные");
                                 return;
                             }
                             student.IdDirection = selectedDirection.Id;
-                            student.POO = selectedPOO.Name;
+                            //student.POO = selectedPOO.Name;
                             var dataContext = new DataContext();
                             dataContext.Students.Add(student);
                             dataContext.SaveChanges();

@@ -18,6 +18,7 @@ namespace Diplom
         public int IdStudent { get; set; }
         public int IdEvent { get; set; }
         public int Count { get; set; }
+        public string Position { get; set; }
     
         public virtual Events Events { get; set; }
         public virtual Students Students { get; set; }

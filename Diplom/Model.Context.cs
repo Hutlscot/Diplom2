@@ -28,8 +28,8 @@ namespace Diplom
         public virtual DbSet<Directions> Directions { get; set; }
         public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Managers> Managers { get; set; }
-        public virtual DbSet<Rating> Rating { get; set; }
         public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<Сompetencies> Сompetencies { get; set; }
+        public virtual DbSet<Rating> Rating { get; set; }
     }
 }

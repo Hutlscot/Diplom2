@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\vik\Diplom\App.xaml
-13864795143
+14-1786161482
 41432446814
-45-1470208011
+47-1467996271
 22-462065434
-View\AddCompetencies.xaml;View\AddStatus.xaml;View\MainMenu.xaml;View\MainPage.xaml;View\PageAddEvent.xaml;View\PageAddRating.xaml;View\PageAddStudent.xaml;View\PageEvents.xaml;View\PageListManagers.xaml;View\PageManagers.xaml;View\PageRating.xaml;View\PageStudents.xaml;View\WindowAddStatusStudent.xaml;
+View\AddCompetencies.xaml;View\AddStatus.xaml;View\MainMenu.xaml;View\MainPage.xaml;View\PageAddEvent.xaml;View\PageAddRating.xaml;View\PageAddStudent.xaml;View\PageChangeStudent.xaml;View\PageEvents.xaml;View\PageListManagers.xaml;View\PageManagers.xaml;View\PageRating.xaml;View\PageStudents.xaml;View\WindowAddStatusStudent.xaml;
 
 False
 

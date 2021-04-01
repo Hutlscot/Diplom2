@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Diplom.OtherClasses;
+using Diplom.View;
 
 namespace Diplom.VM
 {
@@ -60,6 +61,23 @@ namespace Diplom.VM
                            dataContext.SaveChanges();
                            Transfer.GoTo("Студенты");
                            Mes.SucMes("Студент успешно удален");
+                       }));
+            }
+        }
+
+        private RelayCommand changeCommand;
+        public RelayCommand ChangeCommand
+        {
+            get
+            {
+                return changeCommand ??
+                       (changeCommand = new RelayCommand(obj => {
+                           if (selectedStudent == null)
+                           {
+                               Mes.ErrorMes("Сначала выберите");
+                               return;
+                           }
+                           ManagerFrame.Frame.Navigate(new PageChangeStudent(selectedStudent.Id));
                        }));
             }
         }

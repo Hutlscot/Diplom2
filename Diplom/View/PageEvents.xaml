@@ -22,6 +22,15 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Направление" Binding="{Binding Path=Directions.Name}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Компетенции">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Expander Header="Раскрыть список">
+                                <TextBlock Text="{Binding competentciesRating}"></TextBlock>
+                            </Expander>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">

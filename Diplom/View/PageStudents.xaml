@@ -28,9 +28,16 @@
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">
-            <Button HorizontalAlignment="Left" Content="Добавить" Command="{Binding AddStudent}" Margin="20"></Button>
-            <Button HorizontalAlignment="Center" Content="Рейтинг" Command="{Binding OpenRating}" Margin="10"></Button>
-            <Button HorizontalAlignment="Right" Content="Удалить" Margin="20" Command="{Binding DeleteStudent}"></Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" HorizontalAlignment="Center" Content="Добавить" Command="{Binding AddStudent}"></Button>
+            <Button Grid.Column="1" HorizontalAlignment="Center" Content="Рейтинг" Command="{Binding OpenRating}"></Button>
+            <Button Grid.Column="2" HorizontalAlignment="Center" Content="Удалить" Command="{Binding DeleteStudent}"></Button>
+            <Button Grid.Column="3" HorizontalAlignment="Center" Content="Изменить" Command="{Binding ChangeCommand}"></Button>
         </Grid>
     </Grid>
 </Page>

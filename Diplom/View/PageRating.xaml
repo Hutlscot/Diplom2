@@ -41,13 +41,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Expander Header="Раскрыть список">
-                                <DataGrid ItemsSource="{Binding Events}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="№" Binding="{Binding Id}"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
-                                    </DataGrid.Columns>
-                                </DataGrid>
+                                <TextBlock Text="{Binding Events}"></TextBlock>
                             </Expander>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
