@@ -42,7 +42,7 @@
     <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Contacts" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IsMainManager" Type="bit" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Rating">
     <Key>
@@ -64,7 +64,7 @@
     <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Group" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Cours" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="POO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="POO" Type="nvarchar" MaxLength="50" />
     <Property Name="IdDirection" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Сompetencies">

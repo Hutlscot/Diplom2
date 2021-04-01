@@ -47,7 +47,7 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Contacts" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IsMainManager" Type="bit" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Rating">
           <Key>
@@ -69,7 +69,7 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Group" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Cours" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="POO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="POO" Type="nvarchar" MaxLength="50" />
           <Property Name="IdDirection" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Сompetencies">
@@ -232,7 +232,6 @@
         <EntityContainer Name="DataContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Directions" EntityType="DatabaseModel.Directions" />
           <EntitySet Name="Events" EntityType="DatabaseModel.Events" />
-          <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
           <EntitySet Name="Students" EntityType="DatabaseModel.Students" />
           <EntitySet Name="Сompetencies" EntityType="DatabaseModel.Сompetencies" />
           <AssociationSet Name="FK_Events_ToTable" Association="DatabaseModel.FK_Events_ToTable">
@@ -247,10 +246,6 @@
             <End Role="Сompetencies" EntitySet="Сompetencies" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
-          <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
-            <End Role="Directions" EntitySet="Directions" />
-            <End Role="Managers" EntitySet="Managers" />
-          </AssociationSet>
           <EntitySet Name="Rating" EntityType="DatabaseModel.Rating" />
           <AssociationSet Name="FK_Rating_ToTable_1" Association="DatabaseModel.FK_Rating_ToTable_1">
             <End Role="Events" EntitySet="Events" />
@@ -259,6 +254,11 @@
           <AssociationSet Name="FK_Rating_ToTable" Association="DatabaseModel.FK_Rating_ToTable">
             <End Role="Students" EntitySet="Students" />
             <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
+          <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Managers" EntitySet="Managers" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Directions">
@@ -283,19 +283,6 @@
           <NavigationProperty Name="Сompetencies" Relationship="DatabaseModel.GroupCompetencies" FromRole="Events" ToRole="Сompetencies" />
           <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Events" ToRole="Rating" />
         </EntityType>
-        <EntityType Name="Managers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contacts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
-        </EntityType>
         <EntityType Name="Students">
           <Key>
             <PropertyRef Name="Id" />
@@ -306,7 +293,7 @@
           <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cours" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="POO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="POO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdDirection" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Directions" Relationship="DatabaseModel.FK_Students_ToDirection" FromRole="Students" ToRole="Directions" />
           <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Students" ToRole="Rating" />
@@ -346,10 +333,6 @@
         <Association Name="GroupCompetencies">
           <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="*" />
           <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
-        </Association>
-        <Association Name="GroupManagers">
-          <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
-          <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
         </Association>
         <EntityType Name="Rating">
           <Key>
@@ -391,6 +374,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contacts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
+        </EntityType>
+        <Association Name="GroupManagers">
+          <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
+          <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -411,19 +411,6 @@
                 <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Managers">
-            <EntityTypeMapping TypeName="DatabaseModel.Managers">
-              <MappingFragment StoreEntitySet="Managers">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
-                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -458,14 +445,6 @@
               <ScalarProperty Name="Id" ColumnName="IdCompetencies" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="GroupManagers" TypeName="DatabaseModel.GroupManagers" StoreEntitySet="GroupManagers">
-            <EndProperty Name="Managers">
-              <ScalarProperty Name="Id" ColumnName="IdManager" />
-            </EndProperty>
-            <EndProperty Name="Directions">
-              <ScalarProperty Name="Id" ColumnName="IdDirection" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Rating">
             <EntityTypeMapping TypeName="DatabaseModel.Rating">
               <MappingFragment StoreEntitySet="Rating">
@@ -477,6 +456,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="DatabaseModel.Managers">
+              <MappingFragment StoreEntitySet="Managers">
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="IsMainManager" ColumnName="IsMainManager" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="GroupManagers" TypeName="DatabaseModel.GroupManagers" StoreEntitySet="GroupManagers">
+            <EndProperty Name="Managers">
+              <ScalarProperty Name="Id" ColumnName="IdManager" />
+            </EndProperty>
+            <EndProperty Name="Directions">
+              <ScalarProperty Name="Id" ColumnName="IdDirection" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

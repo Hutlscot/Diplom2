@@ -1,0 +1,49 @@
+﻿<Page x:Class="Diplom.View.AddManagersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление члена органов студенческого самоуправления" Style="{StaticResource Page}">
+
+    <Grid>
+        <GroupBox Margin="30" HorizontalAlignment="Center" Header="Данные студента" Width="300">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <ComboBox Name="combo" materialDesign:HintAssist.Hint="Выберите студента">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Info}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox
+                    MaxLength="10"
+                    Name="contacts"
+                    TextWrapping="Wrap"
+                    materialDesign:HintAssist.Hint="Контакты"
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    Text="{Binding student.Group}"/>
+                <ComboBox materialDesign:HintAssist.Hint="Позиция" Name="cmb_position">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Tag="98" Margin="25"
+                        Name="btm_next"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="150"
+                        ToolTip="Для сохранения необходимо заполнить все поля"
+                        Click="btm_next_Click">
+                    <TextBlock Foreground="White" Margin="0,0,0,3">
+                        Сохранить
+                    </TextBlock>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

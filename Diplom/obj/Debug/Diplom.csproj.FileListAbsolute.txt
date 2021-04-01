@@ -289,3 +289,5 @@ D:\vik\Diplom\obj\Debug\Diplom.exe
 D:\vik\Diplom\obj\Debug\Diplom.pdb
 D:\vik\Diplom\obj\Debug\View\PageChangeStudent.g.cs
 D:\vik\Diplom\obj\Debug\View\PageChangeStudent.baml
+D:\vik\Diplom\obj\Debug\View\AddManagersPage.g.cs
+D:\vik\Diplom\obj\Debug\View\AddManagersPage.baml

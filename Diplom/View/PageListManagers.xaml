@@ -13,17 +13,18 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid Name="grid" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid Name="grid" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" SelectedItem="{Binding selectedItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Контакты" Binding="{Binding Contacts}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Name="txt_main_manager" TextAlignment="Center">У этого направления еще нет главного руководителя</TextBlock>
+        <Grid Grid.Row="1">
+            <TextBlock Name="txt_main_manager" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">У этого направления еще нет главного руководителя</TextBlock>
+            <Button HorizontalAlignment="Left" Margin="20" Content="Добавить" Command="{Binding AddCommand}"></Button>
+            <Button HorizontalAlignment="Right" Margin="20" Content="Удалить" Command="{Binding DelCommand}"></Button>
         </Grid>
     </Grid>
 </Page>

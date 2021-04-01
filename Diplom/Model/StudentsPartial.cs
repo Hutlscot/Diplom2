@@ -102,6 +102,13 @@ namespace Diplom
                 return sum;
             }
         }
+        public string Info
+        {
+            get
+            {
+                return $"{LastName} {Name} группа:{Group}";
+            }
+        }
 
     }
 }

@@ -3,7 +3,6 @@
   <EntityContainer Name="DataContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Directions" EntityType="DatabaseModel.Directions" />
     <EntitySet Name="Events" EntityType="DatabaseModel.Events" />
-    <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
     <EntitySet Name="Students" EntityType="DatabaseModel.Students" />
     <EntitySet Name="Сompetencies" EntityType="DatabaseModel.Сompetencies" />
     <AssociationSet Name="FK_Events_ToTable" Association="DatabaseModel.FK_Events_ToTable">
@@ -18,10 +17,6 @@
       <End Role="Сompetencies" EntitySet="Сompetencies" />
       <End Role="Events" EntitySet="Events" />
     </AssociationSet>
-    <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
-      <End Role="Directions" EntitySet="Directions" />
-      <End Role="Managers" EntitySet="Managers" />
-    </AssociationSet>
     <EntitySet Name="Rating" EntityType="DatabaseModel.Rating" />
     <AssociationSet Name="FK_Rating_ToTable_1" Association="DatabaseModel.FK_Rating_ToTable_1">
       <End Role="Events" EntitySet="Events" />
@@ -30,6 +25,11 @@
     <AssociationSet Name="FK_Rating_ToTable" Association="DatabaseModel.FK_Rating_ToTable">
       <End Role="Students" EntitySet="Students" />
       <End Role="Rating" EntitySet="Rating" />
+    </AssociationSet>
+    <EntitySet Name="Managers" EntityType="DatabaseModel.Managers" />
+    <AssociationSet Name="GroupManagers" Association="DatabaseModel.GroupManagers">
+      <End Role="Directions" EntitySet="Directions" />
+      <End Role="Managers" EntitySet="Managers" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Directions">
@@ -54,19 +54,6 @@
     <NavigationProperty Name="Сompetencies" Relationship="DatabaseModel.GroupCompetencies" FromRole="Events" ToRole="Сompetencies" />
     <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable_1" FromRole="Events" ToRole="Rating" />
   </EntityType>
-  <EntityType Name="Managers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Contacts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
-  </EntityType>
   <EntityType Name="Students">
     <Key>
       <PropertyRef Name="Id" />
@@ -77,7 +64,7 @@
     <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Cours" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="POO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IdDirection" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Directions" Relationship="DatabaseModel.FK_Students_ToDirection" FromRole="Students" ToRole="Directions" />
     <NavigationProperty Name="Rating" Relationship="DatabaseModel.FK_Rating_ToTable" FromRole="Students" ToRole="Rating" />
@@ -118,10 +105,6 @@
     <End Type="DatabaseModel.Сompetencies" Role="Сompetencies" Multiplicity="*" />
     <End Type="DatabaseModel.Events" Role="Events" Multiplicity="*" />
   </Association>
-  <Association Name="GroupManagers">
-    <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
-    <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
-  </Association>
   <EntityType Name="Rating">
     <Key>
       <PropertyRef Name="Id" />
@@ -161,5 +144,22 @@
         <PropertyRef Name="IdStudent" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Managers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contacts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsMainManager" Type="Boolean" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Directions" Relationship="DatabaseModel.GroupManagers" FromRole="Managers" ToRole="Directions" />
+  </EntityType>
+  <Association Name="GroupManagers">
+    <End Type="DatabaseModel.Directions" Role="Directions" Multiplicity="*" />
+    <End Type="DatabaseModel.Managers" Role="Managers" Multiplicity="*" />
   </Association>
 </Schema>

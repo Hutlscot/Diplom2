@@ -93,7 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\EventPartial.cs" />
-    <Compile Include="Model\ItemPOO.cs" />
+    <Compile Include="Model\ItemPosition.cs" />
     <Compile Include="Model\ManagersPartial.cs" />
     <Compile Include="Model\OtherData.cs" />
     <Compile Include="Model\StudentsPartial.cs" />
@@ -101,6 +101,9 @@
     <Compile Include="OtherClasses\ExportToExcel.cs" />
     <Compile Include="View\AddCompetencies.xaml.cs">
       <DependentUpon>AddCompetencies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddManagersPage.xaml.cs">
+      <DependentUpon>AddManagersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddStatus.xaml.cs">
       <DependentUpon>AddStatus.xaml</DependentUpon>
@@ -168,6 +171,10 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="View\AddCompetencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddManagersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
